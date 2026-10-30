@@ -1,0 +1,1677 @@
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>فروشگاه مارلا</title>
+<meta name="theme-color" content="#FBE3EA">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="مارلا">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: one narrow column, soft pink paper, rose accent, navy ink from the Marela logo.
+   Brand hero on the home page, compact bar elsewhere, fixed tab bar at the bottom. */
+:root{
+  color-scheme:light;
+  --bg:#FFF3F6; --surface:#FFFFFF; --ink:#2F2230; --muted:#86697A; --line:#F2D8E1; --chip:#FCE5EC;
+  --accent:#C4466F; --accent-ink:#FFFFFF; --accent-bg:#FBDCE6; --accent-soft:#FDEEF3;
+  --navy:#1E3A5F; --teal:#4B8F9E; --gold:#C39653;
+  --pos:#1F7A63; --pos-bg:#DDF1EA; --neg:#B3261E; --neg-bg:#FDE3E0; --warn:#8A5A00; --warn-bg:#FBEBC8;
+  --font:"Vazirmatn","Noto Sans Arabic","Noto Naskh Arabic",Tahoma,"Segoe UI",system-ui,sans-serif;
+  --brand:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:15px;line-height:1.7;direction:rtl;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-top:calc(12px + env(safe-area-inset-top,0px));padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+.wrap{max-width:600px;margin:0 auto}
+button,input,select,textarea{font-family:inherit;font-size:16px;color:inherit}
+button{cursor:pointer}
+.num{font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+h2{font-size:21px;margin:18px 0 8px;font-weight:800;text-wrap:balance}
+h3{font-size:16px;margin:20px 0 8px;font-weight:700;color:var(--navy)}
+.note{color:var(--muted);font-size:13px;margin:4px 0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* brand hero (home) */
+.brand{display:flex;align-items:center;gap:14px;padding:14px 14px;background:var(--surface);border:1px solid var(--line);border-radius:22px}
+.brand img{width:72px;height:72px;border-radius:50%;flex:none;border:1px solid var(--line)}
+.brand .nm{font-family:var(--brand);font-weight:600;font-size:34px;letter-spacing:.1em;color:var(--navy);line-height:1;direction:ltr;text-align:right}
+.brand .sb{font-size:14px;color:var(--accent);font-weight:700;margin-top:6px}
+.brand .ow{font-size:12.5px;color:var(--muted)}
+.bar{display:flex;align-items:center;gap:10px;padding:6px 0 2px}
+.bar h1{flex:1;margin:0;font-size:20px;font-weight:800;color:var(--navy)}
+.bar img{width:34px;height:34px;border-radius:50%;border:1px solid var(--line)}
+.iconbtn{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--surface);display:grid;place-items:center;color:var(--navy)}
+.iconbtn svg{width:22px;height:22px}
+
+/* tiles */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:10px 12px;min-width:0}
+.tile span{display:block;font-size:12.5px;color:var(--muted)}
+.tile b{display:block;font-size:19px;font-weight:800;margin-top:2px;overflow-wrap:anywhere}
+.tile small{display:block;font-size:11.5px;color:var(--muted)}
+.tile.rose{background:var(--accent-soft);border-color:#F6C9D8}
+.tile.pos b{color:var(--pos)} .tile.neg b{color:var(--neg)}
+.hero{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:14px;margin:10px 0}
+.hero .lbl{font-size:13px;color:var(--muted)}
+.hero .big{font-size:28px;font-weight:800;color:var(--navy);margin:2px 0}
+.hero .big small{font-size:13px;color:var(--muted);font-weight:500;margin-inline-start:6px}
+
+/* lists */
+.grp{background:var(--surface);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:8px 0}
+.row{display:flex;align-items:center;gap:10px;width:100%;padding:11px 14px;border:0;border-bottom:1px solid var(--line);background:transparent;text-align:right;min-height:58px}
+.row:last-child{border-bottom:0}
+button.row:active{background:var(--accent-soft)}
+.row .r1{flex:1;min-width:0;display:block}
+.row .r1 .d{display:block;font-weight:700;overflow-wrap:anywhere}
+.row .r1 .m{display:block;font-size:12.5px;color:var(--muted);overflow-wrap:anywhere}
+.row .r2{text-align:left;flex:none;max-width:48%}
+.row .amt{display:block;font-weight:800}
+.row .bal{display:block;font-size:12px;color:var(--muted)}
+.neg{color:var(--neg)} .pos{color:var(--pos)}
+.tag{display:inline-block;padding:1px 9px;border-radius:99px;font-size:11.5px;font-weight:700;background:var(--chip);color:var(--navy);margin-inline-start:6px;vertical-align:middle}
+.tag.ok{background:var(--pos-bg);color:var(--pos)} .tag.late{background:var(--neg-bg);color:var(--neg)} .tag.wait{background:var(--warn-bg);color:var(--warn)} .tag.anon{background:#E6EEF8;color:var(--navy)}
+.empty{padding:22px 14px;text-align:center;color:var(--muted);font-size:14px;border:1px dashed #EFC3D2;border-radius:16px;background:var(--surface);margin:8px 0}
+
+/* controls */
+.btn{display:block;width:100%;min-height:48px;padding:10px 16px;margin-top:10px;border-radius:14px;border:1px solid var(--line);background:var(--surface);font-weight:700;color:var(--navy)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.soft{background:var(--accent-bg);border-color:#F3BDD0;color:#8E2149}
+.btn.danger{background:var(--neg-bg);border-color:#F3B9B3;color:var(--neg)}
+.btn.sm{display:inline-block;width:auto;min-height:40px;margin:6px 0 0;padding:6px 14px;font-size:14px}
+.btn:disabled{opacity:.5}
+.btns2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btns2 .btn{margin-top:10px}
+.link{border:0;background:none;color:var(--accent);font-weight:700;padding:6px 4px;text-decoration:underline;text-underline-offset:3px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:6px 14px;font-size:14px;color:var(--navy)}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.seg{display:flex;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--surface);margin:6px 0}
+.seg button{flex:1;border:0;background:transparent;padding:10px 6px;font-size:14px;font-weight:600;color:var(--muted);min-height:44px}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.lab{display:flex;justify-content:space-between;align-items:center;margin:14px 0 4px;font-size:14px;font-weight:600;color:var(--navy)}
+.lab label{font-weight:600}
+.field{width:100%;min-height:48px;padding:9px 13px;border:1px solid #EBCBD6;border-radius:13px;background:#fff;color:var(--ink);text-align:right}
+.field.ltr{direction:ltr;text-align:left}
+textarea.field{min-height:76px;resize:vertical}
+.tmn{font-size:12.5px;color:var(--muted);margin:3px 4px 0;min-height:19px}
+.tmn b{color:var(--navy)}
+.range{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.range label{display:block;font-size:13px;color:var(--muted);margin-bottom:3px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:18px;margin:10px 0}
+.box.pad{padding:12px 14px}
+.banner{background:var(--warn-bg);color:var(--warn);border-radius:14px;padding:10px 14px;font-size:13.5px;margin:10px 0}
+.banner.rose{background:var(--accent-bg);color:#8E2149}
+.banner.bad{background:var(--neg-bg);color:var(--neg)}
+.banner button{margin-inline-start:6px}
+.err{min-height:0;color:var(--neg);font-size:13.5px;font-weight:600;margin-top:10px}
+.errbox{padding:10px 14px;border-radius:12px;background:var(--neg-bg);font-weight:700;font-size:14.5px}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--accent)}
+.chk{display:flex;align-items:center;gap:10px;margin:12px 0;font-size:14.5px}
+
+/* invoice lines in forms */
+.ln{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:10px 12px;margin:10px 0;position:relative}
+.ln .x{position:absolute;left:8px;top:8px;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--neg);font-size:18px;line-height:1}
+.ln .two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ln .stk{font-size:12.5px;color:var(--muted);margin:2px 2px 0}
+.ln .sum{font-weight:800;color:var(--navy);margin-top:6px}
+.codebadge{display:flex;align-items:center;justify-content:space-between;background:var(--accent-soft);border:1px solid #F6C9D8;border-radius:16px;padding:10px 14px;margin:8px 0}
+.codebadge b{font-size:22px;letter-spacing:.06em;color:#8E2149;direction:ltr}
+.codebadge span{font-size:13px;color:var(--muted)}
+.totbox{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:6px 14px;margin:12px 0}
+.totbox div{display:flex;justify-content:space-between;gap:10px;padding:5px 0;border-bottom:1px dashed var(--line);font-size:14.5px}
+.totbox div:last-child{border-bottom:0}
+.totbox .gt{font-size:18px;font-weight:800;color:var(--navy)}
+.totbox .w{display:block;font-size:12.5px;color:var(--muted);border-bottom:0}
+.inst{display:grid;grid-template-columns:34px 1fr 1fr;gap:8px;align-items:center;margin:6px 0}
+.inst i{font-style:normal;color:var(--muted);text-align:center}
+
+/* charts */
+.chart{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:10px;margin:10px 0}
+.chart canvas{display:block;width:100%;height:auto}
+.chart .cap{font-size:13px;color:var(--muted);min-height:20px;margin:2px 4px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:6px 4px 2px;font-size:13px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-inline-end:5px;vertical-align:-1px}
+
+/* bottom tabs */
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(5,1fr);padding:6px max(8px,env(safe-area-inset-left,0px)) calc(6px + env(safe-area-inset-bottom,0px)) max(8px,env(safe-area-inset-right,0px))}
+.nav button{border:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:1px;padding:4px 0;color:var(--muted);font-size:11.5px;font-weight:600;min-height:52px}
+.nav button svg{width:24px;height:24px}
+.nav button[aria-current="page"]{color:var(--accent)}
+.nav button.fab{color:var(--accent-ink)}
+.nav button.fab span.pl{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--accent);margin-top:-18px;border:4px solid var(--surface)}
+.nav button.fab svg{width:24px;height:24px}
+.nav button.fab small{color:var(--accent);font-size:11.5px;font-weight:700}
+
+/* modal, toast */
+.modal{position:fixed;inset:0;z-index:40;background:rgba(40,16,30,.5);display:flex;align-items:center;justify-content:center;padding:14px}
+.modal[hidden]{display:none}
+.mbox{width:100%;max-width:470px;max-height:92vh;overflow:auto;background:var(--surface);border-radius:22px;padding:16px;border:1px solid var(--line)}
+.mbox h3{margin:0 0 8px;font-size:18px}
+.mline{padding:6px 0;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.8}
+.mline b{color:#8E2149}
+.mwarn{margin-top:10px;padding:10px 12px;border-radius:12px;background:var(--warn-bg);color:var(--warn);font-weight:700;font-size:13.5px}
+.pv{display:grid;gap:8px;margin:8px 0}
+.pv img{width:100%;height:auto;border:1px solid var(--line);border-radius:8px;display:block}
+.toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--navy);color:#fff;padding:10px 18px;border-radius:99px;font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:.2s;z-index:50;max-width:90vw;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.toast{transition:none}}
+@media (max-width:360px){.tiles{grid-template-columns:1fr}.brand .nm{font-size:32px}}
+</style>
+</head><body><div class="wrap">
+  <div class="banner bad" id="storeWarn" hidden>ذخیره‌سازی مرورگر در دسترس نیست؛ اطلاعات با بستن برنامه از بین می‌رود.</div>
+  <header id="top"></header>
+  <main id="view"></main>
+</div>
+<nav class="nav" id="nav" aria-label="بخش‌های برنامه">
+  <button type="button" data-tab="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg><small>خانه</small></button>
+  <button type="button" data-tab="sales"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg><small>فروش</small></button>
+  <button type="button" data-act="newSale" class="fab"><span class="pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span><small>فروش جدید</small></button>
+  <button type="button" data-tab="stock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-5 9 5v8l-9 5-9-5z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg><small>کالاها</small></button>
+  <button type="button" data-tab="reports"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg><small>گزارش</small></button>
+</nav>
+<div class="modal" id="modal" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>var LOGO="data:image/jpeg;base64,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";var DEMO=false;
+"use strict";
+var VERSION="1.0",KEY="marela-v1";
+var MONTHS=["فروردین","اردیبهشت","خرداد","تیر","مرداد","شهریور","مهر","آبان","آذر","دی","بهمن","اسفند"];
+var WD=["یکشنبه","دوشنبه","سه‌شنبه","چهارشنبه","پنجشنبه","جمعه","شنبه"];
+var COLORS={sale:"#C4466F",buy:"#B07A12",profit:"#2E6DA4"};
+var LISTS=["parties","products","buys","sales","pays","rets","adjs","exps"];
+function blank(){return {v:1,rev:0,demo:false,parties:[],products:[],buys:[],sales:[],pays:[],rets:[],adjs:[],exps:[],
+  cfg:{shop:"مارلا",owner:"روژان براتی",phone:"",addr:"",insta:"",foot:"از خرید شما سپاسگزاریم",prefix:"MR",seq:0,low:3,gap:30,anonSeq:0},lastBackup:null,changes:0}}
+var S=blank();
+var storeOK=true,toastT=null,snapT=null;
+function $(id){return document.getElementById(id)}
+
+/* ---------- helpers ---------- */
+function D(s){return String(s).replace(/[۰-۹]/g,function(c){return c.charCodeAt(0)-1776}).replace(/[٠-٩]/g,function(c){return c.charCodeAt(0)-1632})}
+function digits(s){return D(s).replace(/\D/g,"")}
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function fmt(n){return Math.abs(Math.round(n||0)).toLocaleString("en-US")}
+function signed(n){return (Math.round(n||0)<0?"−":"")+fmt(n)}
+function money(s){return +digits(s)||0}
+function toman(r){return Math.round((r||0)/10)}
+function parseQty(s){var n=parseInt(digits(s),10);return isFinite(n)?n:0}
+function fmtDate(d){var s=String(d);return s.slice(0,4)+"/"+s.slice(4,6)+"/"+s.slice(6,8)}
+function maskDate(v){var d=digits(v).slice(0,8),o=d.slice(0,4);if(d.length>4)o+="/"+d.slice(4,6);if(d.length>6)o+="/"+d.slice(6,8);return o}
+function parseDate(s){var d=digits(s);if(d.length!==8)return null;var y=+d.slice(0,4),m=+d.slice(4,6),dd=+d.slice(6,8);if(y<1300||y>1500||m<1||m>12||dd<1||dd>(m<=6?31:(m<=11?30:30)))return null;return +d}
+function g2j(gy,gm,gd){var gdm=[0,31,59,90,120,151,181,212,243,273,304,334],gy2=gm>2?gy+1:gy,days=355666+365*gy+Math.floor((gy2+3)/4)-Math.floor((gy2+99)/100)+Math.floor((gy2+399)/400)+gd+gdm[gm-1],jy=-1595+33*Math.floor(days/12053);days%=12053;jy+=4*Math.floor(days/1461);days%=1461;if(days>365){jy+=Math.floor((days-1)/365);days=(days-1)%365}var jm,jd;if(days<186){jm=1+Math.floor(days/31);jd=1+days%31}else{jm=7+Math.floor((days-186)/30);jd=1+(days-186)%30}return [jy,jm,jd]}
+function j2g(jy,jm,jd){jy+=1595;var days=-355668+365*jy+Math.floor(jy/33)*8+Math.floor(((jy%33)+3)/4)+jd+(jm<7?(jm-1)*31:((jm-7)*30)+186),gy=400*Math.floor(days/146097);days%=146097;if(days>36524){gy+=100*Math.floor(--days/36524);days%=36524;if(days>=365)days++}gy+=4*Math.floor(days/1461);days%=1461;if(days>365){gy+=Math.floor((days-1)/365);days=(days-1)%365}var gd=days+1,leap=((gy%4===0&&gy%100!==0)||gy%400===0),sal=[0,31,leap?29:28,31,30,31,30,31,31,30,31,30,31],gm;for(gm=0;gm<13;gm++){var v=sal[gm];if(gd<=v)break;gd-=v}return [gy,gm,gd]}
+function todayJ(){var n=new Date(),j=g2j(n.getFullYear(),n.getMonth()+1,n.getDate());return j[0]*10000+j[1]*100+j[2]}
+function nowT(){var n=new Date();return String(n.getHours()).padStart(2,"0")+":"+String(n.getMinutes()).padStart(2,"0")}
+function addDays(d,k){var y=Math.floor(d/10000),m=Math.floor(d/100)%100,dd=d%100,g=j2g(y,m,dd),t=new Date(Date.UTC(g[0],g[1]-1,g[2]+k)),j=g2j(t.getUTCFullYear(),t.getUTCMonth()+1,t.getUTCDate());return j[0]*10000+j[1]*100+j[2]}
+function dayNo(d){var y=Math.floor(d/10000),m=Math.floor(d/100)%100,dd=d%100,g=j2g(y,m,dd);return Math.round(Date.UTC(g[0],g[1]-1,g[2])/86400000)}
+function weekday(d){var y=Math.floor(d/10000),m=Math.floor(d/100)%100,dd=d%100,g=j2g(y,m,dd);return WD[new Date(Date.UTC(g[0],g[1]-1,g[2])).getUTCDay()]}
+function dateLong(d){return weekday(d)+" "+(d%100)+" "+(MONTHS[Math.floor(d/100)%100-1]||"")}
+function monthKey(d){return Math.floor(d/100)}
+function monthName(k){return MONTHS[k%100-1]+" "+String(Math.floor(k/100)).slice(2)}
+function addMonths(d,k){var y=Math.floor(d/10000),m=Math.floor(d/100)%100,dd=d%100;m+=k;while(m>12){m-=12;y++}while(m<1){m+=12;y--}var mx=m<=6?31:30;if(dd>mx)dd=mx;return y*10000+m*100+dd}
+var ones=["","یک","دو","سه","چهار","پنج","شش","هفت","هشت","نه","ده","یازده","دوازده","سیزده","چهارده","پانزده","شانزده","هفده","هجده","نوزده"];
+var tens=["","","بیست","سی","چهل","پنجاه","شصت","هفتاد","هشتاد","نود"];
+var hund=["","صد","دویست","سیصد","چهارصد","پانصد","ششصد","هفتصد","هشتصد","نهصد"];
+var scales=["","هزار","میلیون","میلیارد","تریلیون"];
+function three(n){var h=Math.floor(n/100),r=n%100,p=[];if(h)p.push(hund[h]);if(r){if(r<20)p.push(ones[r]);else{p.push(tens[Math.floor(r/10)]);if(r%10)p.push(ones[r%10])}}return p.join(" و ")}
+function words(n){n=Math.round(n);if(!n)return"";var i=0,out=[];while(n>0&&i<scales.length){var g=n%1000;if(g){out.unshift((g===1&&i===1)?"":three(g)+(i?" ":""));out[0]+=scales[i]}n=Math.floor(n/1000);i++}return out.join(" و ")}
+function toast(msg){var t=$("toast");t.textContent=msg;t.classList.add("on");clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove("on")},2800)}
+function nid(prefix,arr){var m=0;arr.forEach(function(x){var n=parseInt(String(x.id).slice(prefix.length),10);if(n>m)m=n});return prefix+(m+1)}
+function by(arr,id){for(var i=0;i<arr.length;i++)if(arr[i].id===id)return arr[i];return null}
+function pad2(n){return String(n).padStart(2,"0")}
+function download(name,data,type){var b=data instanceof Blob?data:new Blob([data],{type:type}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download=name;a.style.display="none";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove()},1500)}
+function plain(h){return String(h).replace(/<[^>]*>/g,"").replace(/&amp;/g,"&").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"')}
+
+/* ---------- storage ---------- */
+function mergeStored(){
+  var o=null;try{o=JSON.parse(localStorage.getItem(KEY))}catch(e){return}
+  if(!o||typeof o.rev!=="number"||o.rev<=(S.rev||0))return;
+  LISTS.forEach(function(k){var have={};S[k].forEach(function(x){have[x.id]=1});(Array.isArray(o[k])?o[k]:[]).forEach(function(x){if(x&&typeof x.id==="string"&&!have[x.id])S[k].push(x)})});
+  S.rev=o.rev;
+}
+function persist(){
+  S.changes=(S.changes||0)+1;CACHE=null;
+  var ok=true;mergeStored();S.rev=(S.rev||0)+1;
+  try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){if(storeOK){toast("ذخیره روی گوشی انجام نشد؛ اطلاعات تا بستن برنامه می‌ماند")}storeOK=false;$("storeWarn").hidden=false}
+  clearTimeout(snapT);snapT=setTimeout(snap,3000);
+  return ok;
+}
+function idb(cb){try{var r=indexedDB.open("marela-snaps",1);r.onupgradeneeded=function(){r.result.createObjectStore("s",{keyPath:"t"})};r.onsuccess=function(){cb(r.result)};r.onerror=function(){cb(null)}}catch(e){cb(null)}}
+function snap(){clearTimeout(snapT);var data=JSON.stringify(S),n={s:S.sales.length,b:S.buys.length,p:S.products.length};idb(function(db){if(!db)return;try{var tx=db.transaction("s","readwrite"),st=tx.objectStore("s");st.put({t:Date.now(),data:data,n:n});st.getAllKeys().onsuccess=function(e){var ks=e.target.result;while(ks.length>40)st.delete(ks.shift())}}catch(x){}})}
+function listSnaps(cb){idb(function(db){if(!db){cb([]);return}try{db.transaction("s").objectStore("s").getAll().onsuccess=function(e){cb(e.target.result.sort(function(a,b){return b.t-a.t}))}}catch(x){cb([])}})}
+function sane(o){
+  if(!o||typeof o!=="object"||!Array.isArray(o.products)||!Array.isArray(o.sales))throw new Error("bad");
+  var b=blank();
+  LISTS.forEach(function(k){b[k]=(Array.isArray(o[k])?o[k]:[]).filter(function(x){return x&&typeof x==="object"&&typeof x.id==="string"})});
+  ["buys","sales","pays","rets","adjs","exps"].forEach(function(k){b[k]=b[k].filter(function(x){return typeof x.date==="number"})});
+  b.sales=b.sales.filter(function(x){return Array.isArray(x.lines)});b.buys=b.buys.filter(function(x){return Array.isArray(x.lines)});b.rets=b.rets.filter(function(x){return Array.isArray(x.lines)});
+  if(o.cfg&&typeof o.cfg==="object")for(var k in b.cfg)if(o.cfg[k]!==undefined)b.cfg[k]=o.cfg[k];
+  b.rev=typeof o.rev==="number"?o.rev:0;b.demo=!!o.demo;b.lastBackup=o.lastBackup||null;b.changes=o.changes||0;return b;
+}
+function load(){
+  try{var r=localStorage.getItem(KEY);if(r){S=sane(JSON.parse(r));return true}}catch(e){}
+  return false;
+}
+
+/* ---------- names ---------- */
+function party(id){return by(S.parties,id)}
+function pname(p){if(!p)return "—";return p.name||p.addr||p.insta||p.phone||("مشتری ناشناس "+(p.seq||""))}
+function product(id){return by(S.products,id)}
+function prodName(id){var p=product(id);return p?p.name:"کالای حذف‌شده"}
+function lineName(l){var p=product(l.p);return (p?p.name:"کالا")+(l.v?" ("+l.v+")":"")}
+function varsOf(p){return p.vars&&p.vars.length?p.vars:[""]}
+function mkVars(sizes,colors){
+  var s=sizes.filter(Boolean),c=colors.filter(Boolean),o=[];
+  if(s.length&&c.length)s.forEach(function(a){c.forEach(function(b){o.push(a+" · "+b)})});else if(s.length)o=s.slice();else if(c.length)o=c.slice();
+  return o;
+}
+function splitList(s){return String(s||"").split(/[,،\n]+/).map(function(x){return x.trim()}).filter(Boolean).filter(function(x,i,a){return a.indexOf(x)===i})}
+
+/* ---------- calculation engine (cached per data revision) ---------- */
+var CACHE=null;
+function evKey(r,pr){return r.date*10000+(parseInt(String(r.time||"0:0").split(":")[0],10)||0)*60+(parseInt(String(r.time||"0:0").split(":")[1],10)||0)+pr/10+(parseInt(String(r.id).replace(/\D/g,""),10)||0)/1e7}
+function calc(){
+  if(CACHE)return CACHE;
+  var C={stock:{},cost:{},saleCogs:{},retCogs:{},lossOf:{},unitCost:{},buyTotal:{},saleCalc:{},partyBal:{},lastBuy:{}};
+  function sk(p,v){return p+"|"+(v||"")}
+  /* 1. chronological replay for stock + moving-average cost */
+  var ev=[];
+  S.buys.forEach(function(b){ev.push({k:evKey(b,0),t:"b",r:b})});
+  S.rets.forEach(function(r){ev.push({k:evKey(r,1),t:"r",r:r})});
+  S.adjs.forEach(function(r){ev.push({k:evKey(r,1.5),t:"a",r:r})});
+  S.sales.forEach(function(r){ev.push({k:evKey(r,2),t:"s",r:r})});
+  ev.sort(function(a,b){return a.k-b.k});
+  var q={},avg={};
+  function qty(p){return q[p]||0}
+  ev.forEach(function(e){
+    var r=e.r;
+    if(e.t==="b"){
+      var sum=0;r.lines.forEach(function(l){sum+=l.q*l.cost});
+      var ex=r.extra||0,tot=sum+ex;C.buyTotal[r.id]=tot;
+      r.lines.forEach(function(l){
+        var share=sum?ex*(l.q*l.cost)/sum:0,uc=l.cost+(l.q?share/l.q:0),p=l.p,old=qty(p),oa=avg[p]||0;
+        var nq=old+l.q;avg[p]=nq>0?((Math.max(old,0)*oa)+l.q*uc)/(Math.max(old,0)+l.q):uc;q[p]=nq;
+        C.stock[sk(p,l.v)]=(C.stock[sk(p,l.v)]||0)+l.q;C.lastBuy[p]=uc;
+      });
+    }else if(e.t==="s"){
+      var cg=0;
+      r.lines.forEach(function(l){var u=avg[l.p]||C.lastBuy[l.p]||0;cg+=u*l.q;q[l.p]=qty(l.p)-l.q;C.stock[sk(l.p,l.v)]=(C.stock[sk(l.p,l.v)]||0)-l.q;C.unitCost[r.id+"|"+l.p]=u});
+      C.saleCogs[r.id]=cg;
+    }else if(e.t==="r"){
+      var rc=0;
+      r.lines.forEach(function(l){var u=C.unitCost[r.sale+"|"+l.p];if(u===undefined)u=avg[l.p]||0;rc+=u*l.q;
+        var old=qty(l.p),oa=avg[l.p]||0;avg[l.p]=(Math.max(old,0)+l.q)?((Math.max(old,0)*oa)+l.q*u)/(Math.max(old,0)+l.q):u;q[l.p]=old+l.q;C.stock[sk(l.p,l.v)]=(C.stock[sk(l.p,l.v)]||0)+l.q});
+      C.retCogs[r.id]=rc;
+    }else{
+      var u2=avg[r.p]||C.lastBuy[r.p]||0;q[r.p]=qty(r.p)+r.q;C.stock[sk(r.p,r.v)]=(C.stock[sk(r.p,r.v)]||0)+r.q;
+      C.lossOf[r.id]=r.q<0?-r.q*u2:0;
+    }
+  });
+  C.avg=avg;C.qty=q;
+  /* 2. sale states: totals, returns, payments, installments */
+  var retBy={};S.rets.forEach(function(r){(retBy[r.sale]=retBy[r.sale]||[]).push(r)});
+  var byCust={};S.sales.forEach(function(s){(byCust[s.cust]=byCust[s.cust]||[]).push(s)});
+  var today=todayJ();
+  function saleSum(s){var t=0;s.lines.forEach(function(l){t+=l.q*l.price});return t}
+  Object.keys(byCust).forEach(function(cid){
+    var list=byCust[cid].slice().sort(function(a,b){return evKey(a,2)-evKey(b,2)});
+    var pool=0;S.pays.forEach(function(p){if(p.party===cid&&!p.sale)pool+=(p.dir==="in"?1:-1)*p.amt});
+    list.forEach(function(s){
+      var items=saleSum(s),total=Math.max(0,items-(s.disc||0))+(s.ship||0),ret=0;
+      (retBy[s.id]||[]).forEach(function(r){ret+=r.credit||0});
+      var net=Math.max(0,total-ret),paid=0;
+      S.pays.forEach(function(p){if(p.sale===s.id)paid+=(p.dir==="in"?1:-1)*p.amt});
+      var st={id:s.id,items:items,total:total,ret:ret,net:net,paid:paid,pool:0,down:0};
+      S.pays.forEach(function(p){if(p.sale===s.id&&p.down)st.down+=p.amt});
+      var need=Math.max(0,net-paid);
+      if(need>0&&pool>0){var take=Math.min(need,pool);pool-=take;st.pool=take;paid+=take}
+      st.paid=paid;st.rem=Math.max(0,net-paid);st.over=Math.max(0,paid-net);
+      /* installments */
+      st.inst=[];
+      if(s.inst&&s.inst.parts&&s.inst.parts.length){
+        var amts=s.inst.parts.map(function(p){return p.amt}),cut=ret;
+        for(var i=amts.length-1;i>=0&&cut>0;i--){var c=Math.min(amts[i],cut);amts[i]-=c;cut-=c}
+        var alloc=Math.max(0,paid-st.down);
+        s.inst.parts.forEach(function(p,i){
+          var a=amts[i],got=Math.min(a,alloc);alloc-=got;
+          var state=a<=0?"void":(got>=a?"paid":(p.due<today?"late":(got>0?"part":"wait")));
+          st.inst.push({n:i+1,due:p.due,amt:a,paid:got,rem:a-got,state:state});
+        });
+      }
+      var late=st.inst.filter(function(x){return x.state==="late"}).length;
+      st.status=st.rem<=0?"settled":(late?"late":(st.inst.length?"inst":"credit"));
+      st.cogs=C.saleCogs[s.id]||0;
+      var retCogs=0;(retBy[s.id]||[]).forEach(function(r){retCogs+=C.retCogs[r.id]||0});
+      st.retCogs=retCogs;
+      /* revenue of goods after discount and returns (shipping is not profit) */
+      st.revItems=Math.max(0,items-(s.disc||0));
+      st.profit=(st.revItems-(ret-0))-(st.cogs-retCogs);
+      C.saleCalc[s.id]=st;
+    });
+    C.partyBal[cid]=list.reduce(function(a,s){return a+C.saleCalc[s.id].rem},0);
+  });
+  /* supplier balances */
+  var sup={};
+  S.buys.forEach(function(b){sup[b.supp]=(sup[b.supp]||0)+C.buyTotal[b.id]});
+  S.pays.forEach(function(p){var pp=byId(p.party);if(!pp||pp.type!=="supp")return;sup[p.party]=(sup[p.party]||0)+(p.dir==="out"?-p.amt:p.amt)});
+  Object.keys(sup).forEach(function(k){C.partyBal[k]=sup[k]});
+  CACHE=C;return C;
+}
+function byId(id){return by(S.parties,id)}
+function stockOf(pid,v){var C=calc();return C.stock[pid+"|"+(v||"")]||0}
+function stockTotal(pid){var p=product(pid);if(!p)return 0;var n=0;varsOf(p).forEach(function(v){n+=stockOf(pid,v)});return n}
+function saleSt(id){return calc().saleCalc[id]||{total:0,net:0,paid:0,rem:0,inst:[],status:"settled",profit:0,cogs:0,ret:0}}
+function custBal(id){return calc().partyBal[id]||0}
+function suppBal(id){return calc().partyBal[id]||0}
+function saleTotal(s){var t=0;s.lines.forEach(function(l){t+=l.q*l.price});return Math.max(0,t-(s.disc||0))+(s.ship||0)}
+function saleQty(s){var n=0;s.lines.forEach(function(l){n+=l.q});return n}
+
+/* ---------- invoice code ---------- */
+function newCode(){
+  var yy=String(Math.floor(todayJ()/10000)).slice(2),n=S.cfg.seq||0,code;
+  var used={};S.sales.forEach(function(s){used[s.no]=1});
+  do{n++;code=(S.cfg.prefix||"MR")+"-"+yy+"-"+String(n).padStart(4,"0")}while(used[code]);
+  return {code:code,seq:n};
+}
+function peekCode(){return newCode().code}
+
+/* ---------- period helpers for reports ---------- */
+function inR(d,a,b){return d>=a&&d<=b}
+function presetRange(k){
+  var t=todayJ(),y=Math.floor(t/10000),m=Math.floor(t/100)%100;
+  if(k==="today")return [t,t];
+  if(k==="w7")return [addDays(t,-6),t];
+  if(k==="m")return [y*10000+m*100+1,t];
+  if(k==="pm"){var pm=addMonths(y*10000+m*100+1,-1);return [pm,pm+((Math.floor(pm/100)%100)<=6?30:((Math.floor(pm/100)%100)<=11?29:28))]}
+  if(k==="y")return [y*10000+101,t];
+  return [13000101,15001230];
+}
+
+/* ---------- PDF engine: pages drawn on canvas, saved as JPEG inside a hand-built PDF ---------- */
+var logoEl=new Image();
+function u8(url){var b=atob(url.split(",")[1]),a=new Uint8Array(b.length);for(var i=0;i<b.length;i++)a[i]=b.charCodeAt(i);return a}
+function pdfFrom(jpegs,w,h){
+  var enc=new TextEncoder(),parts=[],offs=[],pos=0,PW=595.28,PH=841.89;
+  function put(x){var b=typeof x==="string"?enc.encode(x):x;parts.push(b);pos+=b.length}
+  function begin(n){offs[n]=pos;put(n+" 0 obj\n")}
+  var N=2+3*jpegs.length,kids=[];
+  jpegs.forEach(function(_,i){kids.push((3+3*i)+" 0 R")});
+  put("%PDF-1.4\n");
+  begin(1);put("<< /Type /Catalog /Pages 2 0 R >>\nendobj\n");
+  begin(2);put("<< /Type /Pages /Kids ["+kids.join(" ")+"] /Count "+jpegs.length+" >>\nendobj\n");
+  jpegs.forEach(function(j,i){
+    var p=3+3*i,c=p+1,im=p+2,content="q "+PW+" 0 0 "+PH+" 0 0 cm /Im0 Do Q";
+    begin(p);put("<< /Type /Page /Parent 2 0 R /MediaBox [0 0 "+PW+" "+PH+"] /Resources << /XObject << /Im0 "+im+" 0 R >> >> /Contents "+c+" 0 R >>\nendobj\n");
+    begin(c);put("<< /Length "+content.length+" >>\nstream\n"+content+"\nendstream\nendobj\n");
+    begin(im);put("<< /Type /XObject /Subtype /Image /Width "+w+" /Height "+h+" /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length "+j.length+" >>\nstream\n");put(j);put("\nendstream\nendobj\n");
+  });
+  var xr=pos,x="xref\n0 "+(N+1)+"\n0000000000 65535 f \n";
+  for(var n=1;n<=N;n++)x+=String(offs[n]).padStart(10,"0")+" 00000 n \n";
+  put(x+"trailer\n<< /Size "+(N+1)+" /Root 1 0 R >>\nstartxref\n"+xr+"\n%%EOF");
+  return new Blob(parts,{type:"application/pdf"});
+}
+var FF="Vazirmatn,'Noto Naskh Arabic','Noto Sans Arabic',Tahoma,sans-serif";
+var BR="'Cormorant Garamond',Georgia,'Times New Roman',serif";
+var C={ink:"#2F2230",mut:"#86697A",line:"#F0D5DF",head:"#FBDCE6",zeb:"#FFF7FA",acc:"#C4466F",navy:"#1E3A5F",pos:"#1F7A63",neg:"#B3261E",band:"#FDEEF3"};
+function newDoc(){
+  var W=1240,H=1754,M=64,R=W-M,CW=R-M,BOT=H-M-60;
+  var d={pages:[],ctx:null,y:0,W:W,H:H,M:M,R:R,CW:CW,BOT:BOT};
+  d.np=function(){var cv=document.createElement("canvas");cv.width=W;cv.height=H;d.ctx=cv.getContext("2d");d.ctx.fillStyle="#fff";d.ctx.fillRect(0,0,W,H);d.ctx.textBaseline="middle";d.pages.push(cv);d.y=M};
+  d.font=function(sz,wt,fam){d.ctx.font=wt+" "+sz+"px "+(fam||FF)};
+  d.T=function(s,x,yy,al,sz,wt,col,dir,fam){d.font(sz,wt,fam);d.ctx.fillStyle=col;d.ctx.textAlign=al;try{d.ctx.direction=dir||"rtl"}catch(e){}d.ctx.fillText(s,x,yy)};
+  d.fit=function(s,mw,sz,wt){d.font(sz,wt);if(d.ctx.measureText(s).width<=mw)return s;while(s.length>1&&d.ctx.measureText(s+"…").width>mw)s=s.slice(0,-1);return s+"…"};
+  d.wrap=function(s,mw,sz,wt){d.font(sz,wt);var ws=String(s).split(" "),lines=[],cur="";ws.forEach(function(w){var t=cur?cur+" "+w:w;if(d.ctx.measureText(t).width<=mw||!cur)cur=t;else{lines.push(cur);cur=w}});if(cur)lines.push(cur);return lines};
+  d.sec=function(title){if(d.y+230>BOT)d.np();d.T(title,R,d.y+18,"right",30,800,C.acc);d.y+=54};
+  d.table=function(cols0,rows,opts){
+    opts=opts||{};
+    var cols=cols0.map(function(c){var o={};for(var k in c)o[k]=c[k];return o});
+    var RH=54,LH=36,PAD=14,SZ=opts.sz||23,HS=opts.hsz||21,fixed=0,flex=null;
+    cols.forEach(function(c){if(c.w)fixed+=c.w;else flex=c});
+    if(flex)flex.w=CW-fixed;
+    var x=R;cols.forEach(function(c){c.xr=x;c.xl=x-c.w;x=c.xl});
+    function head(){d.ctx.fillStyle=C.head;d.ctx.fillRect(M,d.y,CW,54);cols.forEach(function(c){var mid=c.a==="c";d.T(c.l,mid?(c.xl+c.xr)/2:c.xr-PAD,d.y+27,mid?"center":"right",HS,700,C.ink)});d.y+=54}
+    if(d.y+54+RH>BOT)d.np();
+    head();
+    rows.forEach(function(r,i){
+      var lines=1,wl=null;
+      cols.forEach(function(c){if(c.wrap){wl=d.wrap(String(r[c.k]||""),c.w-2*PAD,SZ,400);lines=Math.max(1,wl.length)}});
+      var h=lines>1?lines*LH+16:RH;
+      if(d.y+h>BOT){d.np();head()}
+      if(r.bold){d.ctx.fillStyle=C.head;d.ctx.fillRect(M,d.y,CW,h)}else if(i%2){d.ctx.fillStyle=C.zeb;d.ctx.fillRect(M,d.y,CW,h)}
+      cols.forEach(function(c){
+        var v=r[c.k];if(v===undefined||v===null||v==="")return;
+        var wt=r.bold?800:400,col=(r.neg&&r.neg[c.k])?C.neg:C.ink;
+        if(c.wrap){wl.forEach(function(ln,li){d.T(ln,c.xr-PAD,d.y+(h-lines*LH)/2+LH*li+LH/2,"right",SZ,wt,col)})}
+        else if(c.a==="c")d.T(String(v),(c.xl+c.xr)/2,d.y+h/2,"center",SZ,wt,col,"ltr");
+        else if(c.num)d.T(String(v),c.xr-PAD,d.y+h/2,"right",SZ,wt,col,"ltr");
+        else d.T(d.fit(String(v),c.w-2*PAD,SZ,wt),c.xr-PAD,d.y+h/2,"right",SZ,wt,col);
+      });
+      d.ctx.strokeStyle="#F3DFE7";d.ctx.lineWidth=1;d.ctx.beginPath();d.ctx.moveTo(M,d.y+h);d.ctx.lineTo(R,d.y+h);d.ctx.stroke();
+      d.y+=h;
+    });
+    d.y+=28;
+  };
+  /* brand header: soft band, logo, shop name */
+  d.header=function(title,metaR,metaL){
+    d.np();
+    d.ctx.fillStyle=C.band;d.ctx.fillRect(0,0,W,300);
+    d.ctx.fillStyle=C.acc;d.ctx.fillRect(0,300,W,6);
+    var lg=190,lx=M,ly=55;
+    d.ctx.save();d.ctx.beginPath();d.ctx.arc(lx+lg/2,ly+lg/2,lg/2,0,Math.PI*2);d.ctx.closePath();d.ctx.clip();
+    d.ctx.fillStyle="#fff";d.ctx.fillRect(lx,ly,lg,lg);
+    if(logoEl.complete&&logoEl.naturalWidth)d.ctx.drawImage(logoEl,lx,ly,lg,lg);
+    d.ctx.restore();
+    d.ctx.strokeStyle=C.line;d.ctx.lineWidth=3;d.ctx.beginPath();d.ctx.arc(lx+lg/2,ly+lg/2,lg/2,0,Math.PI*2);d.ctx.stroke();
+    d.T("MARELA",R,d.y+78,"right",92,600,C.navy,"ltr",BR);
+    d.T("مارلا  ·  فروشگاه آنلاین پوشاک",R,d.y+168,"right",32,700,C.acc);
+    var sub=[S.cfg.phone,S.cfg.insta].filter(Boolean).join("   |   ");
+    if(sub)d.T(sub,R,d.y+214,"right",24,400,C.mut,"ltr");
+    d.y=300+46;
+    d.T(title,R,d.y+22,"right",46,800,C.ink);
+    if(metaL)d.T(metaL,M,d.y+22,"left",30,800,C.acc,"ltr");
+    d.y+=70;
+    if(metaR){d.T(metaR,R,d.y+14,"right",26,400,C.mut);d.y+=46}
+  };
+  d.sign=function(){
+    if(d.y+250>BOT)d.np();
+    d.y+=60;
+    d.ctx.strokeStyle=C.line;d.ctx.lineWidth=2;d.ctx.beginPath();d.ctx.moveTo(M,d.y);d.ctx.lineTo(R,d.y);d.ctx.stroke();
+    d.y+=40;
+    if(S.cfg.foot)d.T(S.cfg.foot,M+CW/2,d.y+12,"center",26,500,C.mut);
+    d.y+=64;
+    d.T("روژان براتی",R-130,d.y+10,"center",42,800,C.navy);
+    d.T("مدیر فروشگاه مارلا",R-130,d.y+58,"center",24,400,C.mut);
+    var ctact=[S.cfg.addr].filter(Boolean).join(" ");
+    if(ctact){var ls=d.wrap(ctact,CW*0.55,23,400);ls.slice(0,2).forEach(function(l,i){d.T(l,M,d.y+4+i*34,"left",23,400,C.mut)})}
+    d.y+=110;
+  };
+  d.tiles=function(items){
+    var cw=CW/items.length;
+    d.ctx.fillStyle=C.zeb;d.ctx.fillRect(M,d.y,CW,118);
+    d.ctx.strokeStyle=C.line;d.ctx.lineWidth=2;d.ctx.strokeRect(M,d.y,CW,118);
+    items.forEach(function(it,k){
+      var xr=R-k*cw,xc=xr-cw/2;
+      if(k){d.ctx.beginPath();d.ctx.moveTo(xr,d.y+14);d.ctx.lineTo(xr,d.y+104);d.ctx.stroke()}
+      d.T(it[0],xc,d.y+34,"center",21,400,C.mut);
+      d.T(it[1],xc,d.y+78,"center",it[1].length>11?24:30,800,it[2]||C.ink,"ltr");
+    });
+    d.y+=118+28;
+  };
+  d.finish=function(){
+    d.pages.forEach(function(cv,i){d.ctx=cv.getContext("2d");d.T("صفحه "+(i+1)+" از "+d.pages.length,W/2,H-36,"center",20,400,C.mut)});
+    var urls=d.pages.map(function(c){return c.toDataURL("image/jpeg",0.9)});
+    d.urls=urls;
+    return pdfFrom(urls.map(u8),W,H);
+  };
+  return d;
+}
+/* ----- charts shared by screen and PDF ----- */
+function shortM(v){var a=Math.abs(v);if(a>=1e9)return (v/1e9).toFixed(a>=1e10?0:1).replace(/\.0$/,"")+" میلیارد";if(a>=1e6)return (v/1e6).toFixed(a>=1e7?0:1).replace(/\.0$/,"")+" میلیون";if(a>=1e3)return Math.round(v/1e3)+" هزار";return String(Math.round(v))}
+/* horizontal bars: label above each bar, anchored right (RTL). Returns hit rects. */
+function drawHBars(ctx,x,y,w,items,o){
+  o=o||{};var rh=o.rh||64,bh=o.bh||16,fs=o.fs||15,hits=[],max=0;
+  items.forEach(function(it){if(it.v>max)max=it.v});if(!max)max=1;
+  var col=o.color||COLORS.sale;
+  items.forEach(function(it,i){
+    var yy=y+i*rh,bw=Math.max(4,(w-8)*it.v/max);
+    ctx.textBaseline="middle";try{ctx.direction="rtl"}catch(e){}
+    ctx.font="600 "+fs+"px "+FF;ctx.fillStyle=C.ink;ctx.textAlign="right";
+    var lab=it.label;while(lab.length>1&&ctx.measureText(lab).width>w*0.72)lab=lab.slice(0,-1);if(lab!==it.label)lab+="…";
+    ctx.fillText(lab,x+w,yy+fs*0.8);
+    ctx.font="700 "+fs+"px "+FF;ctx.textAlign="left";try{ctx.direction="ltr"}catch(e){}ctx.fillStyle=C.mut;ctx.fillText(it.txt,x,yy+fs*0.8);
+    var by0=yy+fs*0.8+fs*0.9;
+    ctx.fillStyle="#F6E4EA";roundR(ctx,x,by0,w,bh,4);
+    ctx.fillStyle=col;roundR(ctx,x+w-bw,by0,bw,bh,4);
+    hits.push({x:x,y:yy,w:w,h:rh,i:i});
+  });
+  return hits;
+}
+function roundR(ctx,x,y,w,h,r){ctx.beginPath();ctx.moveTo(x+r,y);ctx.arcTo(x+w,y,x+w,y+h,r);ctx.arcTo(x+w,y+h,x,y+h,r);ctx.arcTo(x,y+h,x,y,r);ctx.arcTo(x,y,x+w,y,r);ctx.closePath();ctx.fill()}
+/* grouped columns: cats=[label], series=[{name,color,vals:[]}] ; newest on the left? RTL: first category at right */
+function drawCols(ctx,x,y,w,h,cats,series,o){
+  o=o||{};var fs=o.fs||13,hits=[],pad={l:58,b:30,t:10},pw=w-pad.l,ph=h-pad.b-pad.t,max=0,min=0;
+  series.forEach(function(s){s.vals.forEach(function(v){if(v>max)max=v;if(v<min)min=v})});
+  if(max<=0&&min>=0)max=1;
+  var step=1,mag=Math.pow(10,Math.floor(Math.log10(max-min||1)));[1,2,2.5,5,10].some(function(m){step=m*mag/ (max-min>0?1:1);return (max-min)/step<=4});
+  var top=Math.ceil(max/step)*step,bot=Math.floor(min/step)*step;if(top===bot)top=bot+step;
+  function Y(v){return y+pad.t+ph*(1-(v-bot)/(top-bot))}
+  ctx.textBaseline="middle";ctx.font="400 "+(fs-1)+"px "+FF;
+  for(var v=bot;v<=top+1e-6;v+=step){ctx.strokeStyle=v===0?"#C9AFBB":"#F3E1E8";ctx.lineWidth=v===0?1.5:1;ctx.beginPath();ctx.moveTo(x+pad.l,Y(v));ctx.lineTo(x+w,Y(v));ctx.stroke();
+    ctx.fillStyle=C.mut;ctx.textAlign="left";try{ctx.direction="rtl"}catch(e){}ctx.fillText(shortM(v),x,Y(v))}
+  var n=cats.length,gw=pw/n,ns=series.length,bw=Math.min(18,(gw*0.72)/ns),gap=2;
+  cats.forEach(function(c,i){
+    /* first category on the right edge */
+    var gx=x+w-(i+1)*gw,cx=gx+gw/2,tot=ns*bw+(ns-1)*gap,sx=cx-tot/2;
+    series.forEach(function(s,k){
+      var vv=s.vals[i]||0,x0=sx+k*(bw+gap),y0=Y(Math.max(0,bot)),y1=Y(vv);
+      ctx.fillStyle=s.color;var top2=Math.min(y0,y1),hh=Math.abs(y0-y1);if(hh<1&&vv!==0)hh=1;
+      if(hh>0){ctx.beginPath();var r=Math.min(3,bw/2,hh);if(vv>=0){ctx.moveTo(x0,top2+hh);ctx.lineTo(x0,top2+r);ctx.arcTo(x0,top2,x0+r,top2,r);ctx.lineTo(x0+bw-r,top2);ctx.arcTo(x0+bw,top2,x0+bw,top2+r,r);ctx.lineTo(x0+bw,top2+hh)}else{ctx.moveTo(x0,top2);ctx.lineTo(x0,top2+hh-r);ctx.arcTo(x0,top2+hh,x0+r,top2+hh,r);ctx.lineTo(x0+bw-r,top2+hh);ctx.arcTo(x0+bw,top2+hh,x0+bw,top2+hh-r,r);ctx.lineTo(x0+bw,top2)}ctx.closePath();ctx.fill()}
+    });
+    ctx.fillStyle=C.mut;ctx.textAlign="center";ctx.font="400 "+(fs-1)+"px "+FF;
+    if(n<=12||i%Math.ceil(n/10)===0)ctx.fillText(c,cx,y+h-pad.b/2+4);
+    hits.push({x:gx,y:y,w:gw,h:h,i:i});
+  });
+  return hits;
+}
+/* ----- documents ----- */
+function ready(cb){
+  var done=false;function go2(){if(done)return;done=true;cb()}
+  try{Promise.all([document.fonts.load("700 24px Vazirmatn"),document.fonts.load("400 24px Vazirmatn"),document.fonts.load("600 40px 'Cormorant Garamond'")]).then(go2,go2);setTimeout(go2,1800)}catch(e){go2()}
+}
+var pdfBusy=false;
+/* build a PDF, then show it in-page (preview pages + share/save buttons) */
+function makeDoc(spec){
+  if(pdfBusy)return;pdfBusy=true;toast("در حال ساخت PDF…");
+  ready(function(){
+    setTimeout(function(){
+      try{var d=spec.draw(),blob=d.finish();pdfBusy=false;showPdf(blob,d.urls,spec)}
+      catch(e){pdfBusy=false;toast("ساخت PDF انجام نشد: "+(e&&e.message||""))}
+    },30);
+  });
+}
+function showPdf(blob,urls,spec){
+  var h='<div class="mbox"><h3>'+esc(spec.title||"فایل PDF")+'</h3><div class="note">پیش‌نمایش؛ از دکمه‌های زیر برای ارسال یا ذخیره استفاده کنید.</div><div class="pv">'+urls.map(function(u,i){return '<img alt="صفحه '+(i+1)+'" src="'+u+'">'}).join("")+'</div>'
+   +'<button class="btn primary" id="pdfShare" type="button">ارسال PDF (واتساپ، تلگرام، ایتا…)</button>'
+   +'<button class="btn soft" id="pdfSave" type="button">ذخیره فایل PDF در گوشی</button>'
+   +(spec.sms?'<button class="btn soft" id="pdfSms" type="button">ارسال متن پیامکی</button>':'')
+   +'<button class="btn" id="pdfX" type="button">بستن</button></div>';
+  openModal(h);
+  $("pdfX").onclick=closeModal;
+  $("pdfShare").onclick=function(){sharePdf(blob,spec.file+".pdf",true)};
+  $("pdfSave").onclick=function(){sharePdf(blob,spec.file+".pdf",false)};
+  if(spec.sms)$("pdfSms").onclick=function(){closeModal();smsBox(spec.sms.text,spec.sms.phone)};
+}
+function sharePdf(blob,name,share){
+  if(share){
+    try{var f=new File([blob],name,{type:"application/pdf"});if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f],title:name}).catch(function(){});return}}catch(e){}
+  }
+  try{download(name,blob,"application/pdf");toast("فایل PDF آماده ذخیره شد")}catch(e){toast("ذخیره فایل در این حالت ممکن نیست")}
+}
+function methodName(m){return {cash:"نقد",card:"کارت به کارت",pos:"کارت‌خوان",cheque:"چک",other:"سایر"}[m]||""}
+function docInvoice(s){
+  var c=by(S.parties,s.cust),st=saleSt(s.id),rows=[],qn=0;
+  s.lines.forEach(function(l,i){rows.push({i:String(i+1),p:lineName(l),q:String(l.q),pr:fmt(l.price),amt:fmt(l.q*l.price)});qn+=l.q});
+  var items=st.items,notes=[];
+  return {title:"فاکتور فروش "+s.no,file:"factor-"+s.no,sms:{text:invoiceText(s),phone:c&&c.phone},
+    draw:function(){
+      var d=newDoc();
+      d.header("فاکتور فروش","تاریخ: "+fmtDate(s.date)+(s.time?"   ساعت "+s.time:"")+(s.chan?"   |   کانال فروش: "+s.chan:""),s.no);
+      d.ctx.fillStyle=C.zeb;d.ctx.fillRect(d.M,d.y,d.CW,100);d.ctx.strokeStyle=C.line;d.ctx.lineWidth=2;d.ctx.strokeRect(d.M,d.y,d.CW,100);
+      d.T("مشتری",d.R-24,d.y+28,"right",21,400,C.mut);
+      d.T(pname(c),d.R-24,d.y+68,"right",32,800,C.ink);
+      if(c&&c.phone)d.T(c.phone,d.M+24,d.y+34,"left",25,400,C.mut,"ltr");
+      if(c&&c.addr&&c.name)d.T(d.fit(c.addr,d.CW*0.45,22,400),d.M+24,d.y+72,"left",22,400,C.mut);
+      d.y+=100+30;
+      d.table([{k:"i",l:"ردیف",w:84,a:"c"},{k:"p",l:"شرح کالا",w:0},{k:"q",l:"تعداد",w:100,a:"c"},{k:"pr",l:"قیمت واحد (ریال)",w:230,num:true},{k:"amt",l:"مبلغ (ریال)",w:250,num:true}],rows);
+      function tot(l,v,o){o=o||{};if(d.y+70>d.BOT)d.np();d.ctx.fillStyle=o.bold?C.head:C.zeb;d.ctx.fillRect(d.M,d.y,d.CW,o.bold?66:56);
+        d.T(l,d.R-20,d.y+(o.bold?33:28),"right",o.bold?30:25,o.bold?800:500,C.ink);d.T(v,d.M+20,d.y+(o.bold?33:28),"left",o.bold?34:27,o.bold?800:600,o.col||C.ink,"ltr");d.y+=(o.bold?70:60)}
+      tot("جمع کالاها ("+qn+" عدد)",fmt(items)+" ریال");
+      if(s.disc)tot("تخفیف","− "+fmt(s.disc)+" ریال",{col:C.neg});
+      if(s.ship)tot("هزینه ارسال","+ "+fmt(s.ship)+" ریال");
+      tot("مبلغ کل فاکتور",fmt(st.total)+" ریال",{bold:true});
+      if(st.ret)tot("مرجوعی","− "+fmt(st.ret)+" ریال",{col:C.neg});
+      tot("پرداخت‌شده",fmt(st.paid)+" ریال",{col:C.pos});
+      tot("مانده بدهی",fmt(st.rem)+" ریال",{bold:true,col:st.rem?C.neg:C.pos});
+      d.y+=6;
+      d.wrap("مبلغ کل به حروف: "+words(st.total)+" ریال",d.CW,24,400).forEach(function(l){if(d.y+40>d.BOT)d.np();d.T(l,d.R,d.y+16,"right",24,400,C.mut);d.y+=38});
+      if(st.inst.length){
+        d.y+=14;d.sec("جدول اقساط");
+        d.table([{k:"i",l:"قسط",w:100,a:"c"},{k:"due",l:"سررسید",w:250,a:"c"},{k:"amt",l:"مبلغ (ریال)",w:0,num:true},{k:"st",l:"وضعیت",w:210,a:"c"}],
+          st.inst.map(function(x){return {i:String(x.n),due:fmtDate(x.due),amt:fmt(x.amt),st:{paid:"پرداخت شد",late:"معوق",part:"بخشی پرداخت",wait:"در انتظار",void:"—"}[x.state]}}));
+      }
+      if(s.note)d.wrap("توضیحات: "+s.note,d.CW,23,400).forEach(function(l){if(d.y+40>d.BOT)d.np();d.T(l,d.R,d.y+16,"right",23,400,C.mut);d.y+=36});
+      d.sign();return d;
+    }};
+}
+/* ----- plain text (SMS, messengers) ----- */
+function invoiceText(s){
+  var c=by(S.parties,s.cust),st=saleSt(s.id),L=["فروشگاه مارلا","فاکتور "+s.no+" | "+fmtDate(s.date)];
+  if(c&&c.name)L.push("مشتری: "+c.name);
+  s.lines.forEach(function(l){L.push("• "+lineName(l)+" × "+l.q+" = "+fmt(l.q*l.price))});
+  if(s.disc)L.push("تخفیف: "+fmt(s.disc));if(s.ship)L.push("ارسال: "+fmt(s.ship));
+  L.push("مبلغ کل: "+fmt(st.total)+" ریال");L.push("پرداخت‌شده: "+fmt(st.paid)+" ریال");
+  if(st.rem)L.push("مانده: "+fmt(st.rem)+" ریال");
+  if(st.inst.length){L.push("اقساط:");st.inst.forEach(function(x){if(x.state!=="void")L.push(x.n+") "+fmtDate(x.due)+" — "+fmt(x.amt)+(x.state==="paid"?" (پرداخت شد)":""))})}
+  L.push("روژان براتی");if(S.cfg.phone)L.push(S.cfg.phone);return L.join("\n");
+}
+function smsBox(text,phone){
+  var h='<div class="mbox"><h3>پیامک / پیام</h3><div class="note">متن را بررسی کنید؛ سپس ارسال کنید.</div><textarea class="field" id="smsT" rows="9" style="direction:rtl">'+esc(text)+'</textarea>'
+   +'<div class="lab"><label for="smsP">شماره گیرنده</label></div><input class="field ltr" id="smsP" inputmode="tel" value="'+esc(phone||"")+'" placeholder="09123456789">'
+   +'<button class="btn primary" id="smsGo" type="button">باز کردن برنامه پیامک</button>'
+   +'<button class="btn soft" id="smsShare" type="button">ارسال با واتساپ / تلگرام / ایتا</button>'
+   +'<button class="btn soft" id="smsCopy" type="button">کپی متن</button><button class="btn" id="smsX" type="button">بستن</button></div>';
+  openModal(h);
+  $("smsX").onclick=closeModal;
+  $("smsGo").onclick=function(){var t=$("smsT").value,p=digits($("smsP").value);location.href="sms:"+p+"?body="+encodeURIComponent(t)};
+  $("smsShare").onclick=function(){var t=$("smsT").value;if(navigator.share)navigator.share({text:t}).catch(function(){});else toast("اشتراک‌گذاری در این مرورگر نیست؛ متن را کپی کنید")};
+  $("smsCopy").onclick=function(){var t=$("smsT");try{navigator.clipboard.writeText(t.value).then(function(){toast("متن کپی شد")},function(){t.select();document.execCommand("copy");toast("متن کپی شد")})}catch(e){t.select();try{document.execCommand("copy");toast("متن کپی شد")}catch(x){toast("متن را انتخاب و کپی کنید")}}};
+}
+
+/* ---------- router, modal, form plumbing ---------- */
+var route={name:"home",p:{}},stack=[],fm=null,tab="home";
+var TABS={home:"home",sales:"sales",stock:"stock",reports:"reports"};
+function go(name,p,noPush){
+  if(!noPush)stack.push(route);
+  if(stack.length>40)stack.shift();
+  route={name:name,p:p||{}};
+  if(TABS[name])tab=name;
+  render();window.scrollTo(0,0);
+}
+function back(){var r=stack.pop();if(!r)r={name:"home",p:{}};route=r;if(TABS[r.name])tab=r.name;render()}
+function goTab(t){stack=[];route={name:t,p:{}};tab=t;render();window.scrollTo(0,0)}
+function openModal(h){var m=$("modal");m.innerHTML=h;m.hidden=false}
+function closeModal(){var m=$("modal");m.hidden=true;m.innerHTML=""}
+function confirmBox(o,cancelLabel,onCancel,okLabel,onOk){
+  var h='<div class="mbox"><h3>'+esc(o.title)+'</h3>'+(o.lines||[]).map(function(l){return '<div class="mline">'+l+'</div>'}).join("")+(o.warn?'<div class="mwarn">'+esc(o.warn)+'</div>':'')
+   +'<div class="btns2"><button class="btn" id="cbN" type="button">'+esc(cancelLabel)+'</button><button class="btn '+(o.danger?'danger':'primary')+'" id="cbY" type="button">'+esc(okLabel)+'</button></div></div>';
+  openModal(h);
+  $("cbN").onclick=function(){closeModal();onCancel&&onCancel()};
+  $("cbY").onclick=function(){closeModal();onOk&&onOk()};
+}
+function doneBox(title,lines,btns){
+  var h='<div class="mbox"><h3>✓ '+esc(title)+'</h3>'+lines.map(function(l){return '<div class="mline">'+l+'</div>'}).join("")+btns.map(function(b,i){return '<button class="btn '+(b.cls||"")+'" data-b="'+i+'" type="button">'+esc(b.t)+'</button>'}).join("")+'</div>';
+  openModal(h);
+  $("modal").querySelectorAll("[data-b]").forEach(function(el){el.onclick=function(){closeModal();btns[+el.dataset.b].f()}});
+}
+function showErr(msg){
+  var e=$("err");if(e){e.className="errbox";e.textContent=msg;try{e.scrollIntoView({block:"center"})}catch(x){}}
+  toast(msg);
+}
+function getP(o,path){var a=path.split("."),c=o;for(var i=0;i<a.length;i++){if(c==null)return undefined;c=c[a[i]]}return c}
+function setP(o,path,v){var a=path.split("."),c=o;for(var i=0;i<a.length-1;i++)c=c[a[i]];c[a[a.length-1]]=v}
+/* field builders: values live in the fm object, bound by data-k */
+function fMoney(label,path,o){o=o||{};var v=getP(fm,path)||0;
+  return '<div class="lab"><label for="f_'+path+'">'+label+'</label></div><input class="field ltr" id="f_'+path+'" data-k="'+path+'" data-t="m" inputmode="numeric" autocomplete="off" placeholder="ریال" value="'+(v?fmt(v):"")+'"><div class="tmn" data-for="'+path+'"></div>'}
+function fText(label,path,o){o=o||{};return '<div class="lab"><label for="f_'+path+'">'+label+'</label></div><input class="field'+(o.ltr?" ltr":"")+'" id="f_'+path+'" data-k="'+path+'" '+(o.im?'inputmode="'+o.im+'" ':"")+'autocomplete="off" placeholder="'+esc(o.ph||"")+'" value="'+esc(getP(fm,path)||"")+'">'}
+function fArea(label,path,ph){return '<div class="lab"><label for="f_'+path+'">'+label+'</label></div><textarea class="field" id="f_'+path+'" data-k="'+path+'" placeholder="'+esc(ph||"")+'">'+esc(getP(fm,path)||"")+'</textarea>'}
+function fDate(label,path){var v=getP(fm,path);return '<div class="lab"><label for="f_'+path+'">'+label+'</label><button type="button" class="link" data-act="today" data-k2="'+path+'">امروز</button></div><input class="field ltr dt" id="f_'+path+'" data-k="'+path+'" data-t="d" inputmode="numeric" autocomplete="off" placeholder="1405/01/01" value="'+(v?fmtDate(v):"")+'">'}
+function fInt(label,path,o){o=o||{};var v=getP(fm,path);return '<div class="lab"><label for="f_'+path+'">'+label+'</label></div><input class="field ltr" id="f_'+path+'" data-k="'+path+'" data-t="n" inputmode="numeric" autocomplete="off" value="'+(v||v===0?v:"")+'" placeholder="'+(o.ph||"")+'">'}
+function fSeg(path,opts){var v=getP(fm,path);return '<div class="seg" role="group">'+opts.map(function(o){return '<button type="button" data-seg="'+path+'" data-v="'+o[0]+'" aria-pressed="'+(v===o[0])+'">'+o[1]+'</button>'}).join("")+'</div>'}
+function updTmn(){
+  document.querySelectorAll(".tmn[data-for]").forEach(function(el){
+    var v=+getP(fm,el.dataset.for)||0;
+    el.innerHTML=v?('معادل <b class="num">'+fmt(toman(v))+'</b> تومان'+(toman(v)>=1000?' — '+esc(words(toman(v)))+' تومان':'')):'';
+  });
+}
+function partyOptions(type,sel,withNew){
+  var l=S.parties.filter(function(p){return p.type===type}).sort(function(a,b){return pname(a).localeCompare(pname(b),"fa")});
+  return '<option value="">— انتخاب —</option>'+l.map(function(p){return '<option value="'+p.id+'"'+(p.id===sel?" selected":"")+'>'+esc(pname(p))+(p.phone?" · "+esc(p.phone):"")+'</option>'}).join("");
+}
+function productOptions(sel){
+  return '<option value="">— انتخاب کالا —</option>'+S.products.filter(function(p){return !p.off}).sort(function(a,b){return a.name.localeCompare(b.name,"fa")}).map(function(p){return '<option value="'+p.id+'"'+(p.id===sel?" selected":"")+'>'+esc(p.name)+'</option>'}).join("");
+}
+function varOptions(p,sel,showStock){
+  if(!p||!(p.vars&&p.vars.length))return "";
+  return '<option value="">— سایز/رنگ —</option>'+p.vars.map(function(v){return '<option value="'+esc(v)+'"'+(v===sel?" selected":"")+'>'+esc(v)+(showStock?" (موجودی "+stockOf(p.id,v)+")":"")+'</option>'}).join("");
+}
+/* delegated events for forms */
+function onInput(e){
+  var t=e.target,k=t.dataset&&t.dataset.k;if(!k||!fm)return;
+  var ty=t.dataset.t,v;
+  if(ty==="m"){
+    var pos=t.selectionStart,before=t.value.slice(0,pos),dig=digits(before).length;
+    v=money(t.value);var f=v?fmt(v):"";t.value=f;
+    if(document.activeElement===t){var c=0,i=0;while(i<f.length&&c<dig){if(/\d/.test(f[i]))c++;i++}try{t.setSelectionRange(i,i)}catch(x){}}
+  }else if(ty==="n")v=parseQty(t.value);
+  else if(ty==="d"){var m=maskDate(t.value);if(m!==t.value){var p2=t.selectionStart,d0=digits(t.value.slice(0,p2)).length;t.value=m;var c2=0,j=0;while(j<m.length&&c2<d0){if(/\d/.test(m[j]))c2++;j++}try{t.setSelectionRange(j,j)}catch(x){}}v=parseDate(t.value)||0}
+  else v=t.value;
+  setP(fm,k,v);
+  if(fm.onSet)fm.onSet(k);
+  updTmn();fm.upd&&fm.upd();
+}
+function onChange(e){
+  var t=e.target,k=t.dataset&&t.dataset.k;if(!k||!fm)return;
+  if(t.tagName==="SELECT"){setP(fm,k,t.value);if(fm.onSet)fm.onSet(k,true);fm.upd&&fm.upd()}
+}
+document.addEventListener("input",onInput);document.addEventListener("change",onChange);
+document.addEventListener("focusin",function(e){var t=e.target;if(t.classList&&t.classList.contains("dt")){var v0=t.value;try{t.select()}catch(x){}setTimeout(function(){if(t.value===v0&&document.activeElement===t){try{t.select()}catch(x){}}},60)}});
+
+/* ---------- FORMS ---------- */
+function pageBar(title,backBtn){return '<div class="bar">'+(backBtn!==false?'<button class="iconbtn" type="button" data-act="back" aria-label="بازگشت"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>':'')+'<h1>'+esc(title)+'</h1></div>'}
+function submitRow(label){return '<div id="err" class="err" role="alert"></div><button class="btn primary" type="button" data-act="submit">'+label+'</button><button class="btn" type="button" data-act="back">انصراف</button>'}
+
+/* --- party --- */
+function formParty(p){
+  var e=p.edit?by(S.parties,p.edit):null;
+  fm={kind:"party",id:e&&e.id,type:p.type||(e&&e.type)||"cust",name:e?e.name||"":"",phone:e?e.phone||"":"",addr:e?e.addr||"":"",insta:e?e.insta||"":"",note:e?e.note||"":"",ret:p.ret};
+  fm.render=function(){
+    var cust=fm.type==="cust";
+    return pageBar((e?"ویرایش ":"")+(cust?"مشتری":"تأمین‌کننده"))
+     +(cust?'<div class="banner rose">مشتری ناشناس؟ فقط آدرس یا آیدی اینستاگرام او را بنویسید؛ اگر هیچ‌چیز ندانید، همه را خالی بگذارید و برنامه یک شماره ناشناس می‌دهد.</div>':'')
+     +fText(cust?"نام (اختیاری)":"نام تأمین‌کننده","name",{ph:cust?"مثلاً مریم احمدی":""})
+     +fText("شماره موبایل","phone",{ltr:1,im:"tel",ph:"09123456789"})
+     +fText(cust?"آدرس (برای مشتری ناشناس)":"آدرس","addr",{ph:"شهر، محله، خیابان…"})
+     +fText("آیدی اینستاگرام / تلگرام","insta",{ltr:1,ph:"@username"})
+     +fArea("یادداشت","note","مثلاً سایز مورد علاقه، ساعت تماس…")
+     +submitRow("ذخیره");
+  };
+  fm.submit=function(){
+    if(fm.type==="supp"&&!fm.name.trim())return showErr("نام تأمین‌کننده را بنویسید");
+    var rec=e||{id:nid("c",S.parties),type:fm.type};
+    if(!e){S.parties.push(rec)}
+    rec.name=fm.name.trim();rec.phone=D(fm.phone).trim();rec.addr=fm.addr.trim();rec.insta=fm.insta.trim();rec.note=fm.note.trim();
+    if(fm.type==="cust"&&!rec.name&&!rec.addr&&!rec.insta&&!rec.phone&&!rec.seq){S.cfg.anonSeq=(S.cfg.anonSeq||0)+1;rec.seq=S.cfg.anonSeq}
+    if(fm.type==="cust"&&!rec.name)rec.anon=true;else rec.anon=false;
+    if(!persist())return;
+    toast("ذخیره شد ✓");
+    if(fm.ret){fm.ret(rec.id)}else{back()}
+  };
+}
+function quickParty(type,cb){
+  /* open party form but come back to the calling form with the new id */
+  var saved=fm,savedRoute=route;
+  stack.push(route);
+  route={name:"f-party",p:{type:type,ret:function(id){fm=saved;route=savedRoute;stack.pop();render();cb(id)}}};
+  render();window.scrollTo(0,0);
+}
+
+/* --- product --- */
+function formProduct(p){
+  var e=p.edit?product(p.edit):null;
+  fm={kind:"product",id:e&&e.id,name:e?e.name:"",cat:e?e.cat||"":"",sell:e?e.sell||0:0,sizes:"",colors:"",vars:e?(e.vars||[]).slice():[],code:e?e.code||"":"",note:e?e.note||"":"",ret:p.ret,low:e&&e.low?e.low:""};
+  if(e&&e.sizes!==undefined){fm.sizes=e.sizes;fm.colors=e.colors}else if(e){fm.sizes=(e.vars||[]).join("، ")}
+  fm.render=function(){
+    var cats=[];S.products.forEach(function(x){if(x.cat&&cats.indexOf(x.cat)<0)cats.push(x.cat)});
+    ["لباس زنانه","مایو و لباس شنا","شلوار","پیراهن","اکسسوری"].forEach(function(x){if(cats.indexOf(x)<0)cats.push(x)});
+    return pageBar(e?"ویرایش کالا":"کالای جدید")
+     +fText("نام کالا","name",{ph:"مثلاً مایو دو تکه گلدار"})
+     +'<div class="lab"><label>دسته‌بندی</label></div><input class="field" data-k="cat" list="catList" placeholder="انتخاب یا نوشتن دسته" value="'+esc(fm.cat)+'"><datalist id="catList">'+cats.map(function(c){return '<option value="'+esc(c)+'">'}).join("")+'</datalist>'
+     +fMoney("قیمت فروش (ریال)","sell")
+     +'<div class="note">قیمت فروش را هر زمان می‌توانید عوض کنید؛ فقط روی فروش‌های بعدی اثر دارد.</div>'
+     +'<h3>سایز و رنگ</h3><div class="note">با کاما یا ویرگول جدا کنید. اگر هر دو را بنویسید، همه ترکیب‌ها ساخته می‌شود (مثلاً M · مشکی).</div>'
+     +fText("سایزها","sizes",{ph:"S, M, L, XL"})+fText("رنگ‌ها","colors",{ph:"مشکی، سفید، گلبهی"})
+     +'<div class="note" id="varPrev"></div>'
+     +fText("کد کالا (اختیاری)","code",{ltr:1})
+     +fInt("هشدار کمبود موجودی (تعداد؛ خالی = پیش‌فرض "+S.cfg.low+")","low")
+     +fArea("توضیحات","note")
+     +submitRow("ذخیره کالا");
+  };
+  fm.upd=function(){var v=mkVars(splitList(fm.sizes),splitList(fm.colors)),el=$("varPrev");if(el)el.textContent=v.length?("تعداد حالت‌ها: "+v.length+" — "+v.slice(0,6).join("، ")+(v.length>6?" …":"")):"بدون سایز/رنگ (یک موجودی ساده)"};
+  fm.submit=function(){
+    if(!fm.name.trim())return showErr("نام کالا را بنویسید");
+    if(!fm.sell)return showErr("قیمت فروش را وارد کنید");
+    var nv=mkVars(splitList(fm.sizes),splitList(fm.colors));
+    var rec=e||{id:nid("p",S.products)};
+    if(e){
+      /* keep labels that already have movement so stock is never orphaned */
+      var C=calc(),keep=[];(e.vars||[]).forEach(function(v){if(nv.indexOf(v)<0&&(C.stock[e.id+"|"+v]||0)!==0)keep.push(v)});
+      if(!(e.vars||[]).length&&nv.length&&(C.stock[e.id+"|"]||0)!==0)keep.push("");
+      nv=nv.concat(keep.filter(Boolean));
+    }
+    if(!e)S.products.push(rec);
+    rec.name=fm.name.trim();rec.cat=fm.cat.trim();rec.sell=fm.sell;rec.vars=nv;rec.sizes=fm.sizes;rec.colors=fm.colors;rec.code=fm.code.trim();rec.note=fm.note.trim();rec.low=fm.low||0;
+    if(!persist())return;
+    toast("کالا ذخیره شد ✓");
+    if(fm.ret)fm.ret(rec.id);else back();
+  };
+}
+function quickProduct(cb){
+  var saved=fm,savedRoute=route;stack.push(route);
+  route={name:"f-product",p:{ret:function(id){fm=saved;route=savedRoute;stack.pop();render();cb(id)}}};render();window.scrollTo(0,0);
+}
+
+/* --- sale --- */
+function emptyLine(){return {p:"",v:"",q:1,price:0}}
+function formSale(p){
+  var c=newCode();
+  fm={kind:"sale",date:todayJ(),code:c.code,seq:c.seq,cust:p.cust||"",lines:[emptyLine()],disc:0,ship:0,mode:"cash",down:0,n:3,first:0,gap:S.cfg.gap||30,method:"cash",chan:"اینستاگرام",note:""};
+  fm.first=addDays(fm.date,fm.gap);
+  fm.firstTouched=false;
+  fm.render=function(){
+    var h=pageBar("فروش جدید");
+    h+='<div class="codebadge"><div><span>کد فاکتور (خودکار)</span><br><b class="num">'+esc(fm.code)+'</b></div><div style="text-align:left"><span>تاریخ</span></div></div>';
+    h+=fDate("تاریخ فروش (از گوشی؛ قابل ویرایش)","date");
+    h+='<div class="lab"><label for="f_cust">مشتری</label></div><div style="display:grid;grid-template-columns:1fr auto;gap:8px"><select class="field" id="f_cust" data-k="cust">'+partyOptions("cust",fm.cust)+'</select><button class="btn sm" style="margin:0" type="button" data-act="newCust">+ جدید</button></div>';
+    h+='<button class="link" type="button" data-act="anonCust">ثبت سریع مشتری ناشناس (بدون مشخصات)</button>';
+    h+='<h3>اقلام</h3><div id="lines">'+fm.lines.map(lineHtml).join("")+'</div><button class="btn soft" type="button" data-act="addLine">+ افزودن کالا</button>';
+    h+=fMoney("تخفیف کل (ریال)","disc")+fMoney("هزینه ارسال از مشتری (ریال)","ship");
+    h+='<div class="totbox" id="tot"></div>';
+    h+='<h3>نحوه پرداخت</h3>'+fSeg("mode",[["cash","نقدی (تسویه)"],["inst","اقساطی"],["credit","نسیه"]]);
+    h+='<div id="payBox"></div>';
+    h+='<div class="lab"><label for="f_method">روش پرداخت</label></div><select class="field" id="f_method" data-k="method"><option value="cash">نقد</option><option value="card">کارت به کارت</option><option value="pos">کارت‌خوان</option><option value="cheque">چک</option><option value="other">سایر</option></select>';
+    h+='<div class="lab"><label for="f_chan">کانال فروش</label></div><input class="field" id="f_chan" data-k="chan" list="chanList" value="'+esc(fm.chan)+'"><datalist id="chanList"><option value="اینستاگرام"><option value="تلگرام"><option value="واتساپ"><option value="حضوری"><option value="سایت"></datalist>';
+    h+=fArea("توضیحات","note");
+    h+=submitRow("بررسی و ثبت فروش");
+    return h;
+  };
+  fm.after=function(){var sel=$("f_method");if(sel)sel.value=fm.method;fm.payHtml()};
+  fm.payHtml=function(){
+    var b=$("payBox");if(!b)return;var h="";
+    if(fm.mode==="inst"){
+      h+=fMoney("پیش‌پرداخت (ریال)","down")+fInt("تعداد اقساط","n",{ph:"3"})+fInt("فاصلهٔ اقساط (روز)","gap")+fDate("سررسید قسط اول","first")+'<div class="box pad" id="instPrev"></div>';
+    }else if(fm.mode==="credit"){
+      h+=fMoney("مبلغ دریافتی فعلی (ریال)","down")+'<div class="note">باقی‌مانده به‌عنوان بدهی (نسیه) مشتری ثبت می‌شود.</div>';
+    }else h+='<div class="note">کل مبلغ هم‌اکنون دریافت می‌شود.</div>';
+    b.innerHTML=h;updTmn();fm.upd();
+  };
+  fm.onSet=function(k,sel){
+    if(sel&&k==="mode"){}
+    if(k==="date"&&!fm.firstTouched&&fm.date){fm.first=addDays(fm.date,fm.gap||30);var el=$("f_first");if(el)el.value=fmtDate(fm.first)}
+    if(k==="first")fm.firstTouched=true;
+    var m=/^lines\.(\d+)\.(p|v)$/.exec(k);
+    if(m){var l=fm.lines[+m[1]],pr=product(l.p);
+      if(m[2]==="p"){l.v="";if(pr){l.price=pr.sell}else l.price=0;lineRefresh(+m[1])}}
+  };
+  fm.upd=function(){
+    var items=0,qn=0;fm.lines.forEach(function(l,i){var s=l.q*l.price;items+=s;qn+=l.q;var el=$("ls"+i);if(el)el.textContent=l.p?("جمع: "+fmt(s)+" ریال"):"";var sk=$("lk"+i);if(sk)sk.innerHTML=stkInfo(l)});
+    var total=Math.max(0,items-(fm.disc||0))+(fm.ship||0),down=fm.mode==="cash"?total:Math.min(fm.down||0,total);
+    fm.total=total;fm.paid=down;
+    var t=$("tot");if(t)t.innerHTML='<div><span>جمع اقلام ('+qn+' عدد)</span><span class="num">'+fmt(items)+'</span></div>'+(fm.disc?'<div><span>تخفیف</span><span class="num neg">− '+fmt(fm.disc)+'</span></div>':'')+(fm.ship?'<div><span>ارسال</span><span class="num">'+fmt(fm.ship)+'</span></div>':'')+'<div class="gt"><span>مبلغ کل</span><span class="num">'+fmt(total)+' ریال</span></div><div class="w">'+(total?esc(words(total))+' ریال — معادل '+fmt(toman(total))+' تومان':'')+'</div><div><span>پرداخت فعلی</span><span class="num pos">'+fmt(down)+'</span></div><div><span>مانده</span><span class="num '+(total-down?'neg':'')+'">'+fmt(total-down)+'</span></div>';
+    var ip=$("instPrev");
+    if(ip&&fm.mode==="inst"){
+      var parts=instParts(total-down,fm.n,fm.first,fm.gap);
+      ip.innerHTML=parts.length?('<div class="note">برنامهٔ اقساط:</div>'+parts.map(function(x,i){return '<div class="inst"><i>'+(i+1)+'</i><span class="num">'+fmtDate(x.due)+'</span><b class="num">'+fmt(x.amt)+'</b></div>'}).join("")):'<div class="note">پس از وارد کردن اقلام و تعداد اقساط، جدول اینجا دیده می‌شود.</div>';
+    }
+  };
+  fm.submit=function(){
+    var lines=fm.lines.filter(function(l){return l.p});
+    if(!parseDate(fmtDate(fm.date||0))||!fm.date)return showErr("تاریخ فروش درست نیست");
+    if(!fm.cust)return showErr("مشتری را انتخاب کنید (یا «ثبت سریع مشتری ناشناس» را بزنید)");
+    if(!lines.length)return showErr("حداقل یک کالا انتخاب کنید");
+    for(var i=0;i<lines.length;i++){var l=lines[i],pr=product(l.p);
+      if(pr.vars&&pr.vars.length&&!l.v)return showErr("برای «"+pr.name+"» سایز/رنگ را انتخاب کنید");
+      if(l.q<1)return showErr("تعداد «"+pr.name+"» را وارد کنید");
+      if(!l.price)return showErr("قیمت «"+pr.name+"» را وارد کنید");
+    }
+    /* stock check (same product+variant may repeat on several lines) */
+    var need={};lines.forEach(function(l){var k=l.p+"|"+l.v;need[k]=(need[k]||0)+l.q});
+    for(var k in need){var pp=k.split("|"),have=stockOf(pp[0],pp[1]);if(need[k]>have)return showErr("موجودی «"+prodName(pp[0])+(pp[1]?" ("+pp[1]+")":"")+"» فقط "+have+" عدد است");}
+    fm.upd();
+    if(fm.disc>fm.total+fm.disc)return showErr("تخفیف از جمع اقلام بیشتر است");
+    var total=fm.total,paid=fm.mode==="cash"?total:fm.down||0;
+    if(fm.mode==="inst"){
+      if(total-paid<=0)return showErr("برای فروش اقساطی باید بخشی از مبلغ باقی بماند");
+      if(fm.n<2||fm.n>36)return showErr("تعداد اقساط بین ۲ تا ۳۶ باشد");
+      if(!fm.first)return showErr("سررسید قسط اول را وارد کنید");
+    }
+    if(fm.mode==="credit"&&paid>=total)return showErr("برای نسیه، مبلغ دریافتی باید کمتر از کل باشد (یا «نقدی» را بزنید)");
+    var c=by(S.parties,fm.cust),lt=lines.map(function(l){return '<b>'+esc(lineName(l))+'</b> × '+l.q+' = <span class="num">'+fmt(l.q*l.price)+'</span>'});
+    confirmBox({title:"ثبت این فروش؟",lines:['کد: <b class="num">'+esc(fm.code)+'</b> · '+fmtDate(fm.date),"مشتری: <b>"+esc(pname(c))+"</b>"].concat(lt).concat(['مبلغ کل: <b class="num">'+fmt(total)+'</b> ریال','دریافت: <span class="num">'+fmt(paid)+'</span> · مانده: <span class="num">'+fmt(total-paid)+'</span>',fm.mode==="inst"?("اقساطی: "+fm.n+" قسط"):""].filter(Boolean)),warn:"با ثبت، از موجودی انبار کم می‌شود."},"بازگشت",null,"ثبت فروش",function(){fm.commit(lines,total,paid)});
+  };
+  fm.commit=function(lines,total,paid){
+    var code=fm.code,used=S.sales.some(function(s){return s.no===code});
+    if(used){var c2=newCode();code=c2.code}
+    var seqN=parseInt(code.split("-")[2],10)||0;
+    var rec={id:nid("s",S.sales),no:code,date:fm.date,time:nowT(),cust:fm.cust,lines:lines.map(function(l){return {p:l.p,v:l.v||"",q:l.q,price:l.price}}),disc:fm.disc||0,ship:fm.ship||0,method:fm.method,chan:fm.chan,note:fm.note.trim(),inst:null};
+    if(fm.mode==="inst"){rec.inst={n:fm.n,gap:fm.gap,parts:instParts(total-paid,fm.n,fm.first,fm.gap)}}
+    S.sales.push(rec);S.cfg.seq=Math.max(S.cfg.seq||0,seqN);
+    if(paid>0)S.pays.push({id:nid("y",S.pays),date:fm.date,time:nowT(),party:fm.cust,dir:"in",amt:paid,method:fm.method,sale:rec.id,down:true,note:"پرداخت هنگام فروش"});
+    if(!persist())return;
+    stack=[];route={name:"sales",p:{}};tab="sales";render();
+    var st=saleSt(rec.id);
+    doneBox("فروش ثبت شد",['کد فاکتور: <b class="num">'+esc(rec.no)+'</b>','مبلغ کل: <span class="num">'+fmt(st.total)+'</span> ریال'+(st.rem?' · مانده: <span class="num neg">'+fmt(st.rem)+'</span>':'')],
+      [{t:"فاکتور PDF",cls:"primary",f:function(){makeDoc(docInvoice(rec))}},{t:"ارسال پیامک فاکتور",cls:"soft",f:function(){smsBox(invoiceText(rec),(by(S.parties,rec.cust)||{}).phone)}},{t:"مشاهده فاکتور",f:function(){go("sale",{id:rec.id})}},{t:"بستن",f:function(){}}]);
+  };
+}
+function instParts(rem,n,first,gap){
+  if(!(rem>0)||!(n>=2)||!first)return [];
+  var base=Math.floor(rem/n/1000)*1000;if(base<=0)base=Math.floor(rem/n);
+  var out=[],left=rem;
+  for(var i=0;i<n;i++){var a=i===n-1?left:base;left-=a;out.push({due:i===0?first:addDays(first,i*(gap||30)),amt:a})}
+  return out;
+}
+function stkInfo(l){
+  var pr=product(l.p);if(!pr)return "";
+  if(pr.vars&&pr.vars.length&&!l.v)return "سایز/رنگ را انتخاب کنید";
+  var have=stockOf(l.p,l.v);return 'موجودی: <b class="'+(have<l.q?"neg":"")+'">'+have+'</b> عدد';
+}
+function lineHtml(l,i){
+  var pr=product(l.p);
+  return '<div class="ln" id="ln'+i+'">'+(fm.lines.length>1?'<button type="button" class="x" data-act="delLine" data-i="'+i+'" aria-label="حذف ردیف">×</button>':'')
+   +'<div class="lab" style="margin-top:0"><label>کالا</label></div><select class="field" data-k="lines.'+i+'.p">'+productOptions(l.p)+'</select>'
+   +(pr&&pr.vars&&pr.vars.length?'<div class="lab"><label>سایز / رنگ</label></div><select class="field" data-k="lines.'+i+'.v">'+varOptions(pr,l.v,true)+'</select>':'')
+   +'<div class="stk" id="lk'+i+'"></div>'
+   +'<div class="two"><div><div class="lab"><label>تعداد</label></div><input class="field ltr" data-k="lines.'+i+'.q" data-t="n" inputmode="numeric" value="'+(l.q||"")+'"></div><div><div class="lab"><label>قیمت واحد (ریال)</label></div><input class="field ltr" data-k="lines.'+i+'.price" data-t="m" inputmode="numeric" value="'+(l.price?fmt(l.price):"")+'"></div></div>'
+   +'<div class="tmn" data-for="lines.'+i+'.price"></div><div class="sum" id="ls'+i+'"></div></div>';
+}
+function lineRefresh(i){var el=$("ln"+i);if(!el)return;var tmp=document.createElement("div");tmp.innerHTML=lineHtml(fm.lines[i],i);el.replaceWith(tmp.firstChild);updTmn()}
+
+/* --- purchase (stock in) --- */
+function formBuy(p){
+  fm={kind:"buy",date:todayJ(),supp:p.supp||"",no:"",lines:[{p:p.prod||"",v:"",q:1,cost:0,mode:"keep",pct:30,sell:0,round:true}],extra:0,paid:0,method:"cash",note:""};
+  fm.render=function(){
+    var h=pageBar("ورود کالا به انبار (خرید)");
+    h+=fDate("تاریخ خرید","date");
+    h+='<div class="lab"><label for="f_supp">تأمین‌کننده</label></div><div style="display:grid;grid-template-columns:1fr auto;gap:8px"><select class="field" id="f_supp" data-k="supp">'+partyOptions("supp",fm.supp)+'</select><button class="btn sm" style="margin:0" type="button" data-act="newSupp">+ جدید</button></div>';
+    h+=fText("شماره فاکتور تأمین‌کننده (اختیاری)","no",{ltr:1});
+    h+='<h3>اقلام خریداری‌شده</h3><div id="lines">'+fm.lines.map(buyLineHtml).join("")+'</div><button class="btn soft" type="button" data-act="addBuyLine">+ افزودن کالا</button><button class="link" type="button" data-act="newProdBuy">+ تعریف کالای جدید</button>';
+    h+=fMoney("هزینه جانبی (حمل، بسته‌بندی…) (ریال)","extra")+'<div class="note">هزینه جانبی بین اقلام سرشکن و در بهای تمام‌شده حساب می‌شود.</div>';
+    h+='<div class="totbox" id="tot"></div>';
+    h+=fMoney("پرداخت‌شده به تأمین‌کننده (ریال)","paid")+'<div class="note">باقی‌مانده، بدهی شما به تأمین‌کننده ثبت می‌شود.</div>';
+    h+=fArea("توضیحات","note");
+    return h+submitRow("بررسی و ثبت خرید");
+  };
+  fm.onSet=function(k){var m=/^lines\.(\d+)\.(p|mode)$/.exec(k);if(m){var i=+m[1],l=fm.lines[i];if(m[2]==="p"){l.v="";var pr=product(l.p);if(pr&&!l.sell)l.sell=pr.sell}buyLineRefresh(i)}};
+  fm.upd=function(){
+    var sum=0,qn=0;fm.lines.forEach(function(l,i){var s=l.q*l.cost;sum+=s;qn+=l.q;var calcS=newSell(l);l._ns=calcS;var el=$("bs"+i);if(el)el.innerHTML=l.p?('جمع: <b class="num">'+fmt(s)+'</b> ریال'+(calcS?(' · قیمت فروش جدید: <b class="num">'+fmt(calcS)+'</b> ('+fmt(toman(calcS))+' تومان)'+(l.cost?' · سود '+Math.round((calcS-l.cost)/l.cost*100)+'٪':'')):'')):'';
+      var sp=$("sp"+i);if(sp&&l.mode==="pct")sp.innerHTML=l.cost?('قیمت فروش محاسبه‌شده: <b class="num">'+fmt(calcS)+'</b> ریال = '+fmt(toman(calcS))+' تومان'):'ابتدا قیمت خرید را وارد کنید'});
+    var tot=sum+(fm.extra||0);fm.total=tot;
+    var t=$("tot");if(t)t.innerHTML='<div><span>جمع اقلام ('+qn+' عدد)</span><span class="num">'+fmt(sum)+'</span></div>'+(fm.extra?'<div><span>هزینه جانبی</span><span class="num">'+fmt(fm.extra)+'</span></div>':'')+'<div class="gt"><span>جمع خرید</span><span class="num">'+fmt(tot)+' ریال</span></div><div class="w">'+(tot?esc(words(tot))+' ریال — '+fmt(toman(tot))+' تومان':'')+'</div><div><span>مانده بدهی به تأمین‌کننده</span><span class="num neg">'+fmt(Math.max(0,tot-(fm.paid||0)))+'</span></div>';
+  };
+  fm.submit=function(){
+    var lines=fm.lines.filter(function(l){return l.p});
+    if(!fm.date)return showErr("تاریخ خرید را درست وارد کنید");
+    if(!fm.supp)return showErr("تأمین‌کننده را انتخاب کنید");
+    if(!lines.length)return showErr("حداقل یک کالا را انتخاب کنید");
+    for(var i=0;i<lines.length;i++){var l=lines[i],pr=product(l.p);
+      if(pr.vars&&pr.vars.length&&!l.v)return showErr("برای «"+pr.name+"» سایز/رنگ را انتخاب کنید");
+      if(l.q<1)return showErr("تعداد «"+pr.name+"» را وارد کنید");
+      if(!l.cost)return showErr("قیمت خرید «"+pr.name+"» را وارد کنید");
+      if(l.mode==="manual"&&!l.sell)return showErr("قیمت فروش دستی «"+pr.name+"» را وارد کنید");
+    }
+    fm.upd();
+    if((fm.paid||0)>fm.total)return showErr("پرداختی از جمع خرید بیشتر است");
+    var s=by(S.parties,fm.supp);
+    var ch=lines.filter(function(l){var pr=product(l.p),ns=newSell(l);return ns&&ns!==pr.sell}).map(function(l){return esc(prodName(l.p))+": "+fmt(product(l.p).sell)+" ← <b class='num'>"+fmt(newSell(l))+"</b>"});
+    confirmBox({title:"ثبت این خرید؟",lines:["تأمین‌کننده: <b>"+esc(pname(s))+"</b> · "+fmtDate(fm.date)].concat(lines.map(function(l){return '<b>'+esc(lineName(l))+'</b> × '+l.q+' @ <span class="num">'+fmt(l.cost)+'</span>'})).concat(['جمع: <b class="num">'+fmt(fm.total)+'</b> ریال · پرداخت: <span class="num">'+fmt(fm.paid||0)+'</span>']).concat(ch.length?["تغییر قیمت فروش:"].concat(ch):[]),warn:"موجودی انبار افزایش می‌یابد."},"بازگشت",null,"ثبت خرید",function(){
+      var rec={id:nid("b",S.buys),date:fm.date,time:nowT(),supp:fm.supp,no:fm.no.trim(),lines:lines.map(function(l){return {p:l.p,v:l.v||"",q:l.q,cost:l.cost}}),extra:fm.extra||0,note:fm.note.trim()};
+      S.buys.push(rec);
+      lines.forEach(function(l){var ns=newSell(l),pr=product(l.p);if(ns&&pr)pr.sell=ns});
+      if(fm.paid>0)S.pays.push({id:nid("y",S.pays),date:fm.date,time:nowT(),party:fm.supp,dir:"out",amt:fm.paid,method:fm.method,buy:rec.id,note:"پرداخت هنگام خرید"});
+      if(!persist())return;
+      stack=[];route={name:"stock",p:{seg:"buys"}};tab="stock";render();toast("خرید ثبت شد ✓ — موجودی انبار به‌روز شد");
+    });
+  };
+}
+function newSell(l){
+  if(!l.p)return 0;
+  if(l.mode==="manual")return l.sell||0;
+  if(l.mode==="pct"){if(!l.cost)return 0;var v=l.cost*(1+(l.pct||0)/100);if(l.round)v=Math.ceil(v/10000)*10000;return Math.round(v)}
+  return 0;
+}
+function buyLineHtml(l,i){
+  var pr=product(l.p);
+  return '<div class="ln" id="ln'+i+'">'+(fm.lines.length>1?'<button type="button" class="x" data-act="delLine" data-i="'+i+'" aria-label="حذف ردیف">×</button>':'')
+   +'<div class="lab" style="margin-top:0"><label>کالا</label></div><select class="field" data-k="lines.'+i+'.p">'+productOptions(l.p)+'</select>'
+   +(pr&&pr.vars&&pr.vars.length?'<div class="lab"><label>سایز / رنگ</label></div><select class="field" data-k="lines.'+i+'.v">'+varOptions(pr,l.v,true)+'</select>':'')
+   +(pr?'<div class="stk">قیمت فروش فعلی: <b class="num">'+fmt(pr.sell)+'</b> ریال</div>':'')
+   +'<div class="two"><div><div class="lab"><label>تعداد</label></div><input class="field ltr" data-k="lines.'+i+'.q" data-t="n" inputmode="numeric" value="'+(l.q||"")+'"></div><div><div class="lab"><label>قیمت خرید واحد (ریال)</label></div><input class="field ltr" data-k="lines.'+i+'.cost" data-t="m" inputmode="numeric" value="'+(l.cost?fmt(l.cost):"")+'"></div></div>'
+   +'<div class="tmn" data-for="lines.'+i+'.cost"></div>'
+   +'<div class="lab"><label>قیمت فروش</label></div>'+'<div class="seg">'+[["keep","بدون تغییر"],["pct","درصد سود"],["manual","دستی"]].map(function(o){return '<button type="button" data-seg="lines.'+i+'.mode" data-v="'+o[0]+'" aria-pressed="'+(l.mode===o[0])+'">'+o[1]+'</button>'}).join("")+'</div>'
+   +(l.mode==="pct"?'<div class="two"><div><div class="lab"><label>درصد سود (٪)</label></div><input class="field ltr" data-k="lines.'+i+'.pct" data-t="n" inputmode="numeric" value="'+(l.pct||"")+'"></div><label class="chk" style="margin-top:34px"><input type="checkbox" data-chk="lines.'+i+'.round"'+(l.round?" checked":"")+'> گرد به هزار تومان</label></div><div class="stk" id="sp'+i+'"></div>':"")
+   +(l.mode==="manual"?'<div class="lab"><label>قیمت فروش جدید (ریال)</label></div><input class="field ltr" data-k="lines.'+i+'.sell" data-t="m" inputmode="numeric" value="'+(l.sell?fmt(l.sell):"")+'"><div class="tmn" data-for="lines.'+i+'.sell"></div>':"")
+   +'<div class="sum" id="bs'+i+'"></div></div>';
+}
+function buyLineRefresh(i){var el=$("ln"+i);if(!el)return;var tmp=document.createElement("div");tmp.innerHTML=buyLineHtml(fm.lines[i],i);el.replaceWith(tmp.firstChild);updTmn()}
+
+/* --- payment in/out --- */
+function formPay(p){
+  var dir=p.dir||"in",party0=p.party||"",sale0=p.sale||"";
+  fm={kind:"pay",dir:dir,party:party0,sale:sale0,date:todayJ(),amt:p.amt||0,method:"cash",note:""};
+  fm.render=function(){
+    var inn=fm.dir==="in";
+    var h=pageBar(inn?"دریافت از مشتری":"پرداخت به تأمین‌کننده");
+    h+='<div class="lab"><label for="f_party">'+(inn?"مشتری":"تأمین‌کننده")+'</label></div><select class="field" id="f_party" data-k="party">'+partyOptions(inn?"cust":"supp",fm.party)+'</select>';
+    if(inn&&fm.party){var ss=S.sales.filter(function(s){return s.cust===fm.party&&saleSt(s.id).rem>0});
+      h+='<div class="lab"><label for="f_sale">بابت فاکتور</label></div><select class="field" id="f_sale" data-k="sale"><option value="">خودکار (قدیمی‌ترین فاکتور بدهکار)</option>'+ss.map(function(s){return '<option value="'+s.id+'"'+(s.id===fm.sale?" selected":"")+'>'+esc(s.no)+' — مانده '+fmt(saleSt(s.id).rem)+'</option>'}).join("")+'</select>'}
+    if(fm.party){var bal=by(S.parties,fm.party)?(inn?custBal(fm.party):suppBal(fm.party)):0;h+='<div class="banner rose">'+(inn?'طلب فعلی از این مشتری':'بدهی فعلی به این تأمین‌کننده')+': <b class="num">'+fmt(bal)+'</b> ریال</div>'}
+    h+=fMoney("مبلغ (ریال)","amt")+fDate("تاریخ","date");
+    h+='<div class="lab"><label for="f_method">روش</label></div><select class="field" id="f_method" data-k="method"><option value="cash">نقد</option><option value="card">کارت به کارت</option><option value="pos">کارت‌خوان</option><option value="cheque">چک</option><option value="other">سایر</option></select>';
+    h+=fArea("توضیحات","note");
+    return h+submitRow("بررسی و ثبت");
+  };
+  fm.onSet=function(k,sel){if(k==="party"&&sel){fm.sale="";render()}};
+  fm.after=function(){var sel=$("f_method");if(sel)sel.value=fm.method};
+  fm.submit=function(){
+    if(!fm.party)return showErr("طرف حساب را انتخاب کنید");
+    if(!fm.amt)return showErr("مبلغ را وارد کنید");
+    if(!fm.date)return showErr("تاریخ درست نیست");
+    var pp=by(S.parties,fm.party);
+    confirmBox({title:fm.dir==="in"?"ثبت دریافت؟":"ثبت پرداخت؟",lines:[esc(pname(pp)),'مبلغ: <b class="num">'+fmt(fm.amt)+'</b> ریال ('+fmt(toman(fm.amt))+' تومان)',fmtDate(fm.date)]},"بازگشت",null,"ثبت",function(){
+      S.pays.push({id:nid("y",S.pays),date:fm.date,time:nowT(),party:fm.party,dir:fm.dir,amt:fm.amt,method:fm.method,sale:fm.dir==="in"&&fm.sale?fm.sale:"",note:fm.note.trim()});
+      if(!persist())return;toast("ثبت شد ✓");back();
+    });
+  };
+}
+
+/* --- return --- */
+function formRet(p){
+  var s=by(S.sales,p.sale);
+  fm={kind:"ret",sale:p.sale,date:todayJ(),q:s.lines.map(function(){return 0}),refund:0,note:""};
+  fm.render=function(){
+    var h=pageBar("مرجوعی فاکتور "+s.no);
+    h+='<div class="note">تعداد برگشتی هر کالا را بنویسید. کالا به انبار برمی‌گردد و از بدهی مشتری کم می‌شود.</div>'+fDate("تاریخ مرجوعی","date");
+    s.lines.forEach(function(l,i){var done=0;S.rets.forEach(function(r){if(r.sale===s.id)r.lines.forEach(function(x){if(x.p===l.p&&x.v===l.v)done+=x.q})});l.__max=l.q-done;
+      h+='<div class="ln"><b>'+esc(lineName(l))+'</b><div class="stk">فروخته‌شده '+l.q+' · قبلاً برگشته '+done+' · قیمت '+fmt(l.price)+'</div>'+fInt("تعداد برگشتی","q."+i)+'</div>'});
+    h+='<div class="totbox" id="tot"></div>'+fMoney("مبلغ پس‌داده‌شده نقداً به مشتری (ریال)","refund")+'<div class="note">اگر مشتری هنوز بدهکار است، معمولاً مبلغ پس نمی‌دهید؛ فقط بدهی او کم می‌شود.</div>'+fArea("دلیل مرجوعی","note");
+    return h+submitRow("ثبت مرجوعی");
+  };
+  fm.upd=function(){var t=0;s.lines.forEach(function(l,i){t+=(fm.q[i]||0)*l.price});
+    var disc=0,items=0;s.lines.forEach(function(l){items+=l.q*l.price});if(s.disc&&items)disc=s.disc*(t/items);
+    fm.credit=Math.round(t-disc);var el=$("tot");if(el)el.innerHTML='<div class="gt"><span>اعتبار مرجوعی</span><span class="num">'+fmt(fm.credit)+' ریال</span></div>'};
+  fm.submit=function(){
+    var any=false,lines=[];
+    for(var i=0;i<s.lines.length;i++){var q=fm.q[i]||0;if(q){any=true;if(q>s.lines[i].__max)return showErr("تعداد برگشتی «"+prodName(s.lines[i].p)+"» بیشتر از مجاز است");lines.push({p:s.lines[i].p,v:s.lines[i].v,q:q,price:s.lines[i].price})}}
+    if(!any)return showErr("تعداد برگشتی را وارد کنید");
+    if(!fm.date)return showErr("تاریخ درست نیست");
+    fm.upd();
+    confirmBox({title:"ثبت مرجوعی؟",lines:lines.map(function(l){return esc(lineName(l))+" × "+l.q}).concat(['اعتبار: <b class="num">'+fmt(fm.credit)+'</b> ریال']),warn:"کالاها به انبار برمی‌گردند."},"بازگشت",null,"ثبت",function(){
+      var r={id:nid("r",S.rets),date:fm.date,time:nowT(),sale:s.id,lines:lines,credit:fm.credit,note:fm.note.trim()};
+      S.rets.push(r);
+      if(fm.refund>0)S.pays.push({id:nid("y",S.pays),date:fm.date,time:nowT(),party:s.cust,dir:"out",amt:fm.refund,method:"cash",sale:s.id,note:"استرداد وجه مرجوعی"});
+      if(!persist())return;toast("مرجوعی ثبت شد ✓");back();
+    });
+  };
+}
+
+/* --- stock adjustment (loss / count) --- */
+function formAdj(p){
+  var pr=product(p.prod);
+  fm={kind:"adj",prod:p.prod,v:"",sign:"-",q:1,date:todayJ(),reason:"ضایعات / آسیب",note:""};
+  fm.render=function(){
+    return pageBar("اصلاح موجودی «"+pr.name+"»")
+     +'<div class="note">برای کالای خراب‌شده، گم‌شده، هدیه یا اصلاح شمارش انبار.</div>'
+     +(pr.vars&&pr.vars.length?'<div class="lab"><label>سایز / رنگ</label></div><select class="field" data-k="v">'+varOptions(pr,fm.v,true)+'</select>':"")
+     +fSeg("sign",[["-","کم کردن"],["+","اضافه کردن"]])
+     +fInt("تعداد","q")
+     +'<div class="lab"><label>علت</label></div><input class="field" data-k="reason" list="rsn" value="'+esc(fm.reason)+'"><datalist id="rsn"><option value="ضایعات / آسیب"><option value="گم‌شدن"><option value="هدیه / نمونه"><option value="اصلاح شمارش انبار"></datalist>'
+     +fDate("تاریخ","date")+submitRow("ثبت");
+  };
+  fm.submit=function(){
+    if(pr.vars&&pr.vars.length&&!fm.v)return showErr("سایز/رنگ را انتخاب کنید");
+    if(fm.q<1)return showErr("تعداد را وارد کنید");
+    var d=(fm.sign==="-"?-1:1)*fm.q;
+    if(d<0&&stockOf(pr.id,fm.v)+d<0)return showErr("موجودی کافی نیست ("+stockOf(pr.id,fm.v)+" عدد)");
+    S.adjs.push({id:nid("a",S.adjs),date:fm.date,time:nowT(),p:pr.id,v:fm.v||"",q:d,reason:fm.reason,note:fm.note});
+    if(!persist())return;toast("اصلاح موجودی ثبت شد ✓");back();
+  };
+}
+
+/* --- expense --- */
+function formExp(p){
+  var e=p.edit?by(S.exps,p.edit):null;
+  fm={kind:"exp",id:e&&e.id,date:e?e.date:todayJ(),title:e?e.title:"",amt:e?e.amt:0,cat:e?e.cat:"ارسال و پست"};
+  fm.render=function(){
+    return pageBar(e?"ویرایش هزینه":"هزینهٔ جدید")
+     +'<div class="chips">'+["ارسال و پست","بسته‌بندی","تبلیغات","عکاسی","سایر"].map(function(c){return '<button type="button" class="chip" data-seg="cat" data-v="'+c+'" aria-pressed="'+(fm.cat===c)+'">'+c+'</button>'}).join("")+'</div>'
+     +fText("شرح","title",{ph:"مثلاً هزینه پست سفارش مریم"})+fMoney("مبلغ (ریال)","amt")+fDate("تاریخ","date")+submitRow("ذخیره");
+  };
+  fm.submit=function(){
+    if(!fm.amt)return showErr("مبلغ را وارد کنید");if(!fm.date)return showErr("تاریخ درست نیست");
+    var r=e||{id:nid("e",S.exps)};if(!e)S.exps.push(r);
+    r.date=fm.date;r.title=fm.title.trim()||fm.cat;r.amt=fm.amt;r.cat=fm.cat;
+    if(!persist())return;toast("هزینه ثبت شد ✓");back();
+  };
+}
+var FORMFN={"f-party":formParty,"f-product":formProduct,"f-sale":formSale,"f-buy":formBuy,"f-pay":formPay,"f-ret":formRet,"f-adj":formAdj,"f-exp":formExp};
+
+/* ---------- VIEWS ---------- */
+var IC={cart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>',
+ gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1.2l2-1.5-2-3.4-2.3 1a7 7 0 0 0-2-1.2L14 3h-4l-.6 2.7a7 7 0 0 0-2 1.2l-2.3-1-2 3.4 2 1.5A7 7 0 0 0 5 12c0 .4 0 .8.1 1.2l-2 1.5 2 3.4 2.3-1a7 7 0 0 0 2 1.2L10 21h4l.6-2.7a7 7 0 0 0 2-1.2l2.3 1 2-3.4-2-1.5c.1-.4.1-.8.1-1.2z"/></svg>'};
+function statTag(st){return {settled:'<span class="tag ok">تسویه</span>',late:'<span class="tag late">معوق</span>',inst:'<span class="tag wait">اقساطی</span>',credit:'<span class="tag wait">نسیه</span>'}[st]||""}
+function empty(t){return '<div class="empty">'+t+'</div>'}
+function saleRow(s){
+  var st=saleSt(s.id),c=party(s.cust);
+  return '<button class="row" type="button" data-act="open" data-r="sale" data-id="'+s.id+'"><span class="r1"><span class="d">'+esc(pname(c))+(c&&c.anon?'<span class="tag anon">ناشناس</span>':'')+'</span><span class="m"><span class="num">'+esc(s.no)+'</span> · '+fmtDate(s.date)+' · '+saleQty(s)+' عدد</span></span><span class="r2"><span class="amt num">'+fmt(st.total)+'</span><span class="bal">'+(st.rem?'<span class="neg">مانده '+fmt(st.rem)+'</span> ':'')+statTag(st.status)+'</span></span></button>';
+}
+function sumRange(a,b){
+  var o={sales:0,net:0,cogs:0,profit:0,buys:0,exps:0,loss:0,ship:0,qty:0,recv:0,paidOut:0,ret:0,cnt:0};
+  S.sales.forEach(function(s){if(!inR(s.date,a,b))return;var st=saleSt(s.id);o.cnt++;o.sales+=st.total;o.net+=st.net;o.ship+=(s.ship||0);o.qty+=saleQty(s);o.cogs+=st.cogs-st.retCogs;o.profit+=st.profit+(s.ship||0)});
+  S.rets.forEach(function(r){if(inR(r.date,a,b))o.ret+=r.credit||0});
+  var C=calc();
+  S.buys.forEach(function(x){if(inR(x.date,a,b))o.buys+=C.buyTotal[x.id]||0});
+  S.exps.forEach(function(x){if(inR(x.date,a,b))o.exps+=x.amt});
+  S.adjs.forEach(function(x){if(inR(x.date,a,b))o.loss+=C.lossOf[x.id]||0});
+  S.pays.forEach(function(p){if(!inR(p.date,a,b))return;var pp=party(p.party);if(!pp)return;if(pp.type==="cust")o.recv+=(p.dir==="in"?p.amt:-p.amt);else o.paidOut+=(p.dir==="out"?p.amt:-p.amt)});
+  o.net_profit=o.profit-o.exps-o.loss;
+  return o;
+}
+function totalRecv(){var n=0;S.parties.forEach(function(p){if(p.type==="cust")n+=Math.max(0,custBal(p.id))});return n}
+function totalDebt(){var n=0;S.parties.forEach(function(p){if(p.type==="supp")n+=Math.max(0,suppBal(p.id))});return n}
+function allInst(){
+  var out=[];S.sales.forEach(function(s){var st=saleSt(s.id);st.inst.forEach(function(x){if(x.rem>0&&x.state!=="void")out.push({s:s,x:x,c:party(s.cust)})})});
+  return out.sort(function(a,b){return a.x.due-b.x.due});
+}
+function instRow(it){
+  var late=it.x.state==="late",days=dayNo(it.x.due)-dayNo(todayJ());
+  return '<button class="row" type="button" data-act="open" data-r="sale" data-id="'+it.s.id+'"><span class="r1"><span class="d">'+esc(pname(it.c))+'</span><span class="m">قسط '+it.x.n+' · <span class="num">'+esc(it.s.no)+'</span> · '+fmtDate(it.x.due)+'</span></span><span class="r2"><span class="amt num">'+fmt(it.x.rem)+'</span><span class="bal">'+(late?'<span class="tag late">'+(-days)+' روز معوق</span>':(days===0?'<span class="tag wait">امروز</span>':'<span class="tag wait">'+days+' روز دیگر</span>'))+'</span></span></button>';
+}
+function lowStock(){
+  var out=[];S.products.forEach(function(p){if(p.off)return;var n=stockTotal(p.id),lim=p.low||S.cfg.low;if(n<=lim)out.push({p:p,n:n})});return out.sort(function(a,b){return a.n-b.n});
+}
+function vHome(){
+  var t=todayJ(),m0=Math.floor(t/100)*100+1,td=sumRange(t,t),mo=sumRange(m0,t);
+  var h='<div class="brand"><img src="'+LOGO+'" alt="لوگوی مارلا"><div style="flex:1;min-width:0"><div class="nm">MARELA</div><div class="sb">مارلا · فروشگاه آنلاین پوشاک</div><div class="ow">مدیریت: '+esc(S.cfg.owner)+'</div></div><button class="iconbtn" type="button" data-act="open" data-r="settings" aria-label="تنظیمات">'+IC.gear+'</button></div>';
+  if(S.demo)h+='<div class="banner">این اطلاعات <b>نمونه</b> است تا برنامه را امتحان کنید. وقتی آماده شدید: تنظیمات ← «پاک کردن داده‌های نمونه».</div>';
+  h+='<div class="note" style="margin:10px 4px 0">امروز: '+dateLong(t)+' '+fmtDate(t).slice(0,4)+'</div>';
+  h+='<div class="tiles"><div class="tile rose"><span>فروش امروز</span><b class="num">'+fmt(td.sales)+'</b><small>ریال · '+td.cnt+' فاکتور</small></div><div class="tile"><span>فروش این ماه</span><b class="num">'+fmt(mo.sales)+'</b><small>'+fmt(toman(mo.sales))+' تومان</small></div>'
+   +'<div class="tile pos"><span>سود ناخالص این ماه</span><b class="num">'+fmt(mo.profit)+'</b><small>ریال</small></div><div class="tile '+(totalRecv()?'neg':'')+'"><span>طلب از مشتریان</span><b class="num">'+fmt(totalRecv())+'</b><small>ریال</small></div></div>';
+  var li=allInst().filter(function(i){return i.x.due<=addDays(t,7)}).slice(0,5);
+  h+='<h3>اقساط معوق و نزدیک (۷ روز آینده)</h3>'+(li.length?'<div class="grp">'+li.map(instRow).join("")+'</div>':empty("قسط معوق یا نزدیکی نداریم 🌸"));
+  var ls=lowStock().slice(0,4);
+  if(ls.length)h+='<h3>کمبود موجودی</h3><div class="grp">'+ls.map(function(x){return '<button class="row" type="button" data-act="open" data-r="product" data-id="'+x.p.id+'"><span class="r1"><span class="d">'+esc(x.p.name)+'</span><span class="m">'+esc(x.p.cat||"")+'</span></span><span class="r2"><span class="tag '+(x.n<=0?"late":"wait")+'">'+(x.n<=0?"تمام شد":"موجودی "+x.n)+'</span></span></button>'}).join("")+'</div>';
+  h+='<h3>دسترسی سریع</h3><div class="btns2" style="margin-top:0"><button class="btn soft" type="button" data-act="open" data-r="f-buy">ورود کالا (خرید)</button><button class="btn soft" type="button" data-act="open" data-r="people">مشتریان و تأمین‌کنندگان</button><button class="btn soft" type="button" data-act="open" data-r="inst">اقساط و بدهکاران</button><button class="btn soft" type="button" data-act="open" data-r="exps">هزینه‌ها</button><button class="btn soft" type="button" data-act="open" data-r="f-pay" data-dir="in">دریافت از مشتری</button><button class="btn soft" type="button" data-act="open" data-r="f-pay" data-dir="out">پرداخت به تأمین‌کننده</button></div>';
+  var rec=S.sales.slice().sort(function(a,b){return b.date-a.date||(b.time||"").localeCompare(a.time||"")}).slice(0,4);
+  h+='<h3>آخرین فروش‌ها</h3>'+(rec.length?'<div class="grp">'+rec.map(saleRow).join("")+'</div>':empty("هنوز فروشی ثبت نشده. دکمهٔ «فروش جدید» پایین صفحه را بزنید."));
+  return h;
+}
+var salesFilter="all",salesQ="";
+function vSales(){
+  var h='<div class="bar"><img src="'+LOGO+'" alt=""><h1>فروش‌ها</h1></div>';
+  h+='<input class="field" id="q" placeholder="جستجو: نام مشتری، کد فاکتور، کالا…" value="'+esc(salesQ)+'" data-search="sales">';
+  h+='<div class="chips">'+[["all","همه"],["open","بدهکار"],["late","معوق"],["inst","اقساطی"],["settled","تسویه"]].map(function(o){return '<button type="button" class="chip" data-filter="'+o[0]+'" aria-pressed="'+(salesFilter===o[0])+'">'+o[1]+'</button>'}).join("")+'</div><div id="list">'+salesList()+'</div>';
+  return h;
+}
+function salesList(){
+  var q=salesQ.trim(),l=S.sales.filter(function(s){
+    var st=saleSt(s.id);
+    if(salesFilter==="open"&&!(st.rem>0))return false;if(salesFilter==="late"&&st.status!=="late")return false;if(salesFilter==="inst"&&!(st.inst.length&&st.rem>0))return false;if(salesFilter==="settled"&&st.rem>0)return false;
+    if(q){var c=party(s.cust),hay=(s.no+" "+pname(c)+" "+(c&&c.phone||"")+" "+s.lines.map(lineName).join(" ")).toLowerCase();if(hay.indexOf(D(q).toLowerCase())<0)return false}
+    return true}).sort(function(a,b){return b.date-a.date||(b.time||"").localeCompare(a.time||"")});
+  return l.length?'<div class="grp">'+l.slice(0,150).map(saleRow).join("")+'</div>'+(l.length>150?'<div class="note">۱۵۰ مورد آخر نمایش داده شد؛ جستجو کنید.</div>':""):empty("فروشی پیدا نشد");
+}
+var stockQ="";
+function vStock(p){
+  var seg=p.seg||"products";
+  var h='<div class="bar"><img src="'+LOGO+'" alt=""><h1>انبار و کالاها</h1></div>';
+  h+='<div class="seg"><button type="button" data-seg2="products" aria-pressed="'+(seg==="products")+'">کالاها</button><button type="button" data-seg2="buys" aria-pressed="'+(seg==="buys")+'">خریدها (ورود)</button></div>';
+  if(seg==="products"){
+    var inv=0,invS=0,n=0;S.products.forEach(function(x){var q=stockTotal(x.id);if(q>0){inv+=q*(calc().avg[x.id]||0);invS+=q*x.sell;n+=q}});
+    h+='<div class="tiles"><div class="tile"><span>تعداد کل موجودی</span><b class="num">'+fmt(n)+'</b><small>عدد</small></div><div class="tile"><span>ارزش انبار (بهای خرید)</span><b class="num">'+fmt(inv)+'</b><small>ریال</small></div></div>';
+    h+='<button class="btn primary" type="button" data-act="open" data-r="f-product">+ کالای جدید</button>';
+    h+='<input class="field" style="margin-top:10px" placeholder="جستجوی کالا یا دسته…" value="'+esc(stockQ)+'" data-search="stock"><div id="list">'+prodList()+'</div>';
+  }else{
+    h+='<button class="btn primary" type="button" data-act="open" data-r="f-buy">+ ورود کالا (خرید جدید)</button>';
+    var l=S.buys.slice().sort(function(a,b){return b.date-a.date});
+    h+=l.length?'<div class="grp">'+l.map(function(b){var s=party(b.supp),tot=calc().buyTotal[b.id]||0,q=0;b.lines.forEach(function(x){q+=x.q});return '<button class="row" type="button" data-act="open" data-r="buy" data-id="'+b.id+'"><span class="r1"><span class="d">'+esc(pname(s))+'</span><span class="m">'+fmtDate(b.date)+' · '+q+' عدد · '+b.lines.length+' ردیف</span></span><span class="r2"><span class="amt num">'+fmt(tot)+'</span></span></button>'}).join("")+'</div>':empty("هنوز خریدی ثبت نشده");
+  }
+  return h;
+}
+function prodList(){
+  var q=D(stockQ.trim()).toLowerCase(),l=S.products.filter(function(x){return !q||(x.name+" "+(x.cat||"")+" "+(x.code||"")).toLowerCase().indexOf(q)>=0}).sort(function(a,b){return (a.cat||"").localeCompare(b.cat||"","fa")||a.name.localeCompare(b.name,"fa")});
+  return l.length?'<div class="grp">'+l.map(function(x){var n=stockTotal(x.id),lim=x.low||S.cfg.low;return '<button class="row" type="button" data-act="open" data-r="product" data-id="'+x.id+'"><span class="r1"><span class="d">'+esc(x.name)+'</span><span class="m">'+esc(x.cat||"بدون دسته")+(x.vars&&x.vars.length?' · '+x.vars.length+' حالت':"")+'</span></span><span class="r2"><span class="amt num">'+fmt(x.sell)+'</span><span class="bal"><span class="tag '+(n<=0?"late":(n<=lim?"wait":"ok"))+'">'+(n<=0?"ناموجود":n+" عدد")+'</span></span></span></button>'}).join("")+'</div>':empty("کالایی پیدا نشد");
+}
+function vProduct(p){
+  var x=product(p.id);if(!x)return empty("کالا پیدا نشد");
+  var C=calc(),n=stockTotal(x.id),avg=C.avg[x.id]||0;
+  var h=pageBar(x.name);
+  h+='<div class="tiles"><div class="tile rose"><span>قیمت فروش</span><b class="num">'+fmt(x.sell)+'</b><small>'+fmt(toman(x.sell))+' تومان</small></div><div class="tile"><span>میانگین قیمت خرید</span><b class="num">'+fmt(avg)+'</b><small>'+(avg?'سود هر عدد: '+fmt(x.sell-avg)+' ('+Math.round((x.sell-avg)/avg*100)+'٪)':'—')+'</small></div><div class="tile"><span>موجودی کل</span><b class="num">'+n+'</b><small>عدد</small></div><div class="tile"><span>دسته</span><b>'+esc(x.cat||"—")+'</b><small>'+esc(x.code||"")+'</small></div></div>';
+  if(x.vars&&x.vars.length)h+='<h3>موجودی هر سایز/رنگ</h3><div class="grp">'+x.vars.map(function(v){var q=stockOf(x.id,v);return '<div class="row"><span class="r1"><span class="d">'+esc(v)+'</span></span><span class="r2"><span class="tag '+(q<=0?"late":(q<=(x.low||S.cfg.low)?"wait":"ok"))+'">'+q+' عدد</span></span></div>'}).join("")+'</div>';
+  var sold=0,rev=0;S.sales.forEach(function(s){s.lines.forEach(function(l){if(l.p===x.id){sold+=l.q;rev+=l.q*l.price}})});
+  h+='<div class="note">تا امروز '+sold+' عدد از این کالا فروخته شده ('+fmt(rev)+' ریال).</div>';
+  h+='<button class="btn primary" type="button" data-act="open" data-r="f-buy" data-prod="'+x.id+'">ورود موجودی (خرید)</button><div class="btns2"><button class="btn soft" type="button" data-act="open" data-r="f-product" data-edit="'+x.id+'">ویرایش / تغییر قیمت</button><button class="btn soft" type="button" data-act="open" data-r="f-adj" data-prod="'+x.id+'">اصلاح موجودی</button></div>';
+  var hist=[];
+  S.buys.forEach(function(b){b.lines.forEach(function(l){if(l.p===x.id)hist.push({d:b.date,t:"ورود",q:l.q,s:(l.v?l.v+" · ":"")+"خرید @ "+fmt(l.cost)})})});
+  S.sales.forEach(function(s){s.lines.forEach(function(l){if(l.p===x.id)hist.push({d:s.date,t:"فروش",q:-l.q,s:(l.v?l.v+" · ":"")+s.no})})});
+  S.adjs.forEach(function(a){if(a.p===x.id)hist.push({d:a.date,t:"اصلاح",q:a.q,s:a.reason})});
+  S.rets.forEach(function(r){r.lines.forEach(function(l){if(l.p===x.id)hist.push({d:r.date,t:"مرجوعی",q:l.q,s:""})})});
+  hist.sort(function(a,b){return b.d-a.d});
+  h+='<h3>گردش کالا</h3>'+(hist.length?'<div class="grp">'+hist.slice(0,30).map(function(e){return '<div class="row"><span class="r1"><span class="d">'+e.t+'</span><span class="m">'+fmtDate(e.d)+' · '+esc(e.s)+'</span></span><span class="r2"><span class="amt num '+(e.q<0?"neg":"pos")+'">'+(e.q>0?"+":"−")+Math.abs(e.q)+'</span></span></div>'}).join("")+'</div>':empty("گردشی ثبت نشده"));
+  h+='<button class="btn danger" type="button" data-act="delProduct" data-id="'+x.id+'">حذف کالا</button>';
+  return h;
+}
+function vSale(p){
+  var s=by(S.sales,p.id);if(!s)return empty("فاکتور پیدا نشد");
+  var st=saleSt(s.id),c=party(s.cust);
+  var h=pageBar("فاکتور "+s.no);
+  h+='<div class="hero"><div class="lbl">'+esc(pname(c))+(c&&c.phone?' · <span class="num">'+esc(c.phone)+'</span>':'')+'</div><div class="big num">'+fmt(st.total)+'<small>ریال</small></div><div class="note">'+fmtDate(s.date)+' · '+dateLong(s.date)+(s.chan?' · '+esc(s.chan):'')+' '+statTag(st.status)+'</div></div>';
+  h+='<div class="grp">'+s.lines.map(function(l){return '<div class="row"><span class="r1"><span class="d">'+esc(lineName(l))+'</span><span class="m">'+l.q+' × '+fmt(l.price)+'</span></span><span class="r2"><span class="amt num">'+fmt(l.q*l.price)+'</span></span></div>'}).join("")+'</div>';
+  h+='<div class="totbox">'+(s.disc?'<div><span>تخفیف</span><span class="num neg">− '+fmt(s.disc)+'</span></div>':'')+(s.ship?'<div><span>ارسال</span><span class="num">'+fmt(s.ship)+'</span></div>':'')+(st.ret?'<div><span>مرجوعی</span><span class="num neg">− '+fmt(st.ret)+'</span></div>':'')+'<div><span>پرداخت‌شده</span><span class="num pos">'+fmt(st.paid)+'</span></div><div class="gt"><span>مانده</span><span class="num '+(st.rem?"neg":"pos")+'">'+fmt(st.rem)+'</span></div><div><span>سود این فاکتور</span><span class="num">'+signed(st.profit+(s.ship||0))+'</span></div></div>';
+  if(st.inst.length)h+='<h3>جدول اقساط</h3><div class="grp">'+st.inst.map(function(x){return '<div class="row"><span class="r1"><span class="d">قسط '+x.n+' · <span class="num">'+fmtDate(x.due)+'</span></span><span class="m">مبلغ '+fmt(x.amt)+(x.paid&&x.paid<x.amt?' · پرداخت '+fmt(x.paid):'')+'</span></span><span class="r2"><span class="tag '+({paid:"ok",late:"late",part:"wait",wait:"wait",void:""}[x.state])+'">'+{paid:"پرداخت شد",late:"معوق",part:"بخشی",wait:"در انتظار",void:"—"}[x.state]+'</span></span></div>'}).join("")+'</div>';
+  var pays=S.pays.filter(function(y){return y.sale===s.id}).sort(function(a,b){return a.date-b.date});
+  if(pays.length)h+='<h3>پرداخت‌ها</h3><div class="grp">'+pays.map(function(y){return '<div class="row"><span class="r1"><span class="d">'+(y.dir==="in"?"دریافت":"استرداد")+' · '+methodName(y.method)+'</span><span class="m">'+fmtDate(y.date)+(y.note?" · "+esc(y.note):"")+'</span></span><span class="r2"><span class="amt num '+(y.dir==="in"?"pos":"neg")+'">'+fmt(y.amt)+'</span></span></div>'}).join("")+'</div>';
+  h+='<button class="btn primary" type="button" data-act="invPdf" data-id="'+s.id+'">فاکتور PDF</button><div class="btns2"><button class="btn soft" type="button" data-act="invSms" data-id="'+s.id+'">پیامک فاکتور</button>'+(st.rem>0?'<button class="btn soft" type="button" data-act="open" data-r="f-pay" data-dir="in" data-party="'+s.cust+'" data-sale="'+s.id+'">ثبت دریافت</button>':'<button class="btn soft" type="button" data-act="open" data-r="f-ret" data-sale="'+s.id+'">مرجوعی</button>')+'</div>';
+  if(st.rem>0)h+='<button class="btn" type="button" data-act="open" data-r="f-ret" data-sale="'+s.id+'">ثبت مرجوعی</button>';
+  if(st.rem>0&&c&&c.phone)h+='<button class="btn" type="button" data-act="remind" data-id="'+s.id+'">پیامک یادآوری قسط/بدهی</button>';
+  h+='<button class="btn danger" type="button" data-act="delSale" data-id="'+s.id+'">حذف فاکتور (موجودی برمی‌گردد)</button>';
+  return h;
+}
+function vBuy(p){
+  var b=by(S.buys,p.id);if(!b)return empty("خرید پیدا نشد");
+  var tot=calc().buyTotal[b.id]||0,s=party(b.supp),paid=0;S.pays.forEach(function(y){if(y.buy===b.id)paid+=y.amt});
+  var h=pageBar("خرید از "+pname(s));
+  h+='<div class="hero"><div class="lbl">'+fmtDate(b.date)+(b.no?' · فاکتور '+esc(b.no):'')+'</div><div class="big num">'+fmt(tot)+'<small>ریال</small></div></div>';
+  h+='<div class="grp">'+b.lines.map(function(l){return '<div class="row"><span class="r1"><span class="d">'+esc(lineName(l))+'</span><span class="m">'+l.q+' × '+fmt(l.cost)+'</span></span><span class="r2"><span class="amt num">'+fmt(l.q*l.cost)+'</span></span></div>'}).join("")+'</div>';
+  h+='<div class="totbox">'+(b.extra?'<div><span>هزینه جانبی</span><span class="num">'+fmt(b.extra)+'</span></div>':'')+'<div><span>پرداخت هنگام خرید</span><span class="num">'+fmt(paid)+'</span></div></div>';
+  if(b.note)h+='<div class="note">'+esc(b.note)+'</div>';
+  h+='<button class="btn danger" type="button" data-act="delBuy" data-id="'+b.id+'">حذف این خرید</button>';
+  return h;
+}
+var peopleSeg="cust",peopleQ="";
+function vPeople(){
+  var h=pageBar("مشتریان و تأمین‌کنندگان");
+  h+='<div class="seg"><button type="button" data-seg3="cust" aria-pressed="'+(peopleSeg==="cust")+'">مشتریان</button><button type="button" data-seg3="supp" aria-pressed="'+(peopleSeg==="supp")+'">تأمین‌کنندگان</button></div>';
+  h+='<button class="btn primary" type="button" data-act="open" data-r="f-party" data-type="'+peopleSeg+'">+ '+(peopleSeg==="cust"?"مشتری جدید":"تأمین‌کنندهٔ جدید")+'</button>';
+  h+='<input class="field" style="margin-top:10px" placeholder="جستجو: نام، موبایل، آدرس…" value="'+esc(peopleQ)+'" data-search="people"><div id="list">'+peopleList()+'</div>';return h;
+}
+function peopleList(){
+  var q=D(peopleQ.trim()).toLowerCase(),l=S.parties.filter(function(p){return p.type===peopleSeg&&(!q||(pname(p)+" "+(p.phone||"")+" "+(p.addr||"")+" "+(p.insta||"")).toLowerCase().indexOf(q)>=0)}).sort(function(a,b){return pname(a).localeCompare(pname(b),"fa")});
+  return l.length?'<div class="grp">'+l.map(function(p){var b=peopleSeg==="cust"?custBal(p.id):suppBal(p.id);return '<button class="row" type="button" data-act="open" data-r="party" data-id="'+p.id+'"><span class="r1"><span class="d">'+esc(pname(p))+(p.anon?'<span class="tag anon">ناشناس</span>':'')+'</span><span class="m">'+esc([p.phone,p.addr&&p.name?p.addr:"",p.insta].filter(Boolean).join(" · "))+'</span></span><span class="r2"><span class="amt num '+(b>0?"neg":"")+'">'+fmt(b)+'</span><span class="bal">'+(peopleSeg==="cust"?"طلب ما":"بدهی ما")+'</span></span></button>'}).join("")+'</div>':empty("موردی پیدا نشد");
+}
+function ledger(pid){
+  var p=party(pid),L=[];
+  if(p.type==="cust"){
+    S.sales.forEach(function(s){if(s.cust===pid){var st=saleSt(s.id);L.push({d:s.date,k:evKey(s,2),t:"فاکتور "+s.no,debit:st.total,credit:0,id:s.id})}});
+    S.rets.forEach(function(r){var s=by(S.sales,r.sale);if(s&&s.cust===pid)L.push({d:r.date,k:evKey(r,1),t:"مرجوعی "+s.no,debit:0,credit:r.credit})});
+    S.pays.forEach(function(y){if(y.party===pid)L.push({d:y.date,k:evKey(y,1.2),t:(y.dir==="in"?"دریافت":"استرداد")+" "+methodName(y.method),debit:y.dir==="out"?y.amt:0,credit:y.dir==="in"?y.amt:0})});
+  }else{
+    S.buys.forEach(function(b){if(b.supp===pid)L.push({d:b.date,k:evKey(b,0),t:"خرید"+(b.no?" "+b.no:""),debit:calc().buyTotal[b.id]||0,credit:0,id:b.id})});
+    S.pays.forEach(function(y){if(y.party===pid)L.push({d:y.date,k:evKey(y,1.2),t:(y.dir==="out"?"پرداخت":"دریافت")+" "+methodName(y.method),debit:y.dir==="in"?y.amt:0,credit:y.dir==="out"?y.amt:0})});
+  }
+  L.sort(function(a,b){return a.k-b.k});var bal=0;L.forEach(function(x){bal+=x.debit-x.credit;x.bal=bal});return L;
+}
+function vParty(p){
+  var x=party(p.id);if(!x)return empty("پیدا نشد");
+  var cust=x.type==="cust",bal=cust?custBal(x.id):suppBal(x.id),L=ledger(x.id);
+  var h=pageBar(pname(x));
+  h+='<div class="hero"><div class="lbl">'+(cust?"طلب ما از این مشتری":"بدهی ما به این تأمین‌کننده")+'</div><div class="big num '+(bal>0?"neg":"")+'">'+fmt(bal)+'<small>ریال · '+fmt(toman(bal))+' تومان</small></div><div class="note">'+esc([x.phone,x.addr,x.insta].filter(Boolean).join(" · "))+'</div>'+(x.note?'<div class="note">'+esc(x.note)+'</div>':'')+'</div>';
+  h+='<div class="btns2"><button class="btn primary" type="button" data-act="open" data-r="'+(cust?"f-sale":"f-buy")+'" data-'+(cust?"cust":"supp")+'="'+x.id+'">'+(cust?"فروش جدید":"خرید جدید")+'</button><button class="btn soft" type="button" data-act="open" data-r="f-pay" data-dir="'+(cust?"in":"out")+'" data-party="'+x.id+'">'+(cust?"ثبت دریافت":"ثبت پرداخت")+'</button><button class="btn soft" type="button" data-act="stmtPdf" data-id="'+x.id+'">صورت‌حساب PDF</button><button class="btn soft" type="button" data-act="stmtSms" data-id="'+x.id+'">پیامک مانده</button></div>';
+  h+='<button class="btn" type="button" data-act="open" data-r="f-party" data-edit="'+x.id+'">ویرایش مشخصات</button>';
+  h+='<h3>ریز حساب</h3>'+(L.length?'<div class="grp">'+L.slice().reverse().slice(0,40).map(function(e){return '<'+(e.id?'button type="button" data-act="open" data-r="'+(cust?"sale":"buy")+'" data-id="'+e.id+'"':'div')+' class="row"><span class="r1"><span class="d">'+esc(e.t)+'</span><span class="m">'+fmtDate(e.d)+'</span></span><span class="r2"><span class="amt num '+(e.debit?(cust?"neg":""):"pos")+'">'+(e.debit?"+"+fmt(e.debit):"−"+fmt(e.credit))+'</span><span class="bal">مانده '+signed(e.bal)+'</span></span></'+(e.id?'button':'div')+'>'}).join("")+'</div>':empty("تراکنشی نیست"));
+  h+='<button class="btn danger" type="button" data-act="delParty" data-id="'+x.id+'">حذف</button>';
+  return h;
+}
+function vInst(){
+  var l=allInst(),t=todayJ(),late=l.filter(function(i){return i.x.state==="late"}),soon=l.filter(function(i){return i.x.state!=="late"});
+  var sum=0;late.forEach(function(i){sum+=i.x.rem});
+  var h=pageBar("اقساط و بدهکاران");
+  h+='<div class="tiles"><div class="tile neg"><span>مجموع معوق</span><b class="num">'+fmt(sum)+'</b><small>'+late.length+' قسط</small></div><div class="tile"><span>کل طلب از مشتریان</span><b class="num">'+fmt(totalRecv())+'</b><small>ریال</small></div></div>';
+  h+='<h3>معوق</h3>'+(late.length?'<div class="grp">'+late.map(instRow).join("")+'</div>':empty("قسط معوقی نداریم"));
+  h+='<h3>آینده</h3>'+(soon.length?'<div class="grp">'+soon.slice(0,60).map(instRow).join("")+'</div>':empty("قسط آینده‌ای نیست"));
+  var cr=S.sales.filter(function(s){var st=saleSt(s.id);return st.rem>0&&!st.inst.length});
+  h+='<h3>نسیه (بدون جدول قسط)</h3>'+(cr.length?'<div class="grp">'+cr.map(saleRow).join("")+'</div>':empty("نسیه‌ای نیست"));
+  return h;
+}
+function vExps(){
+  var l=S.exps.slice().sort(function(a,b){return b.date-a.date}),m0=Math.floor(todayJ()/100)*100+1,tot=0;l.forEach(function(x){if(x.date>=m0)tot+=x.amt});
+  var h=pageBar("هزینه‌ها")+'<div class="tiles"><div class="tile"><span>هزینهٔ این ماه</span><b class="num">'+fmt(tot)+'</b><small>ریال</small></div></div><button class="btn primary" type="button" data-act="open" data-r="f-exp">+ هزینهٔ جدید</button>';
+  h+=l.length?'<div class="grp">'+l.map(function(x){return '<button class="row" type="button" data-act="open" data-r="f-exp" data-edit="'+x.id+'"><span class="r1"><span class="d">'+esc(x.title)+'</span><span class="m">'+esc(x.cat)+' · '+fmtDate(x.date)+'</span></span><span class="r2"><span class="amt num">'+fmt(x.amt)+'</span></span></button>'}).join("")+'</div>':empty("هزینه‌ای ثبت نشده");
+  return h;
+}
+/* ---------- render ---------- */
+function render(){
+  var v=$("view"),name=route.name,h="";
+  if(name.indexOf("f-")===0){
+    if(!route.fm){FORMFN[name](route.p);route.fm=fm}else fm=route.fm;
+    h=fm.render();
+  }else{fm=null;
+    h={home:vHome,sales:vSales,stock:vStock,reports:vReports,product:vProduct,sale:vSale,buy:vBuy,people:vPeople,party:vParty,inst:vInst,exps:vExps,settings:vSettings}[name];
+    h=h?h(route.p):""}
+  v.innerHTML=h;
+  $("top").innerHTML="";
+  document.querySelectorAll("#nav [data-tab]").forEach(function(b){if(b.dataset.tab===tab&&!(name.indexOf("f-")===0))b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
+  if(fm){updTmn();fm.upd&&fm.upd();fm.after&&fm.after()}
+  if(name==="reports")reportAfter();
+}
+
+/* ---------- REPORTS ---------- */
+var rep={tab:"sum",preset:"m",from:0,to:0,metric:"qty",who:"",whoSupp:""};
+(function(){var r=presetRange("m");rep.from=r[0];rep.to=r[1]})();
+var repHits=null,repChart=null;
+var RTABS=[["sum","خلاصه"],["prod","محصولات"],["time","روند"],["cust","مشتری"],["supp","تأمین‌کننده"],["stock","انبار"]];
+function vReports(){
+  var h='<div class="bar"><img src="'+LOGO+'" alt=""><h1>گزارش‌ها</h1></div>';
+  h+='<div class="chips">'+RTABS.map(function(t){return '<button type="button" class="chip" data-rtab="'+t[0]+'" aria-pressed="'+(rep.tab===t[0])+'">'+t[1]+'</button>'}).join("")+'</div>';
+  if(rep.tab!=="stock"){
+    h+='<div class="chips">'+[["today","امروز"],["w7","۷ روز"],["m","این ماه"],["pm","ماه قبل"],["y","امسال"],["all","همه"]].map(function(o){return '<button type="button" class="chip" data-preset="'+o[0]+'" aria-pressed="'+(rep.preset===o[0])+'">'+o[1]+'</button>'}).join("")+'</div>';
+    h+='<div class="range"><div><label for="rf">از تاریخ</label><input class="field ltr dt" id="rf" data-rf="from" inputmode="numeric" value="'+(rep.from<13010101?"":fmtDate(rep.from))+'" placeholder="1405/01/01"></div><div><label for="rt">تا تاریخ</label><input class="field ltr dt" id="rt" data-rf="to" inputmode="numeric" value="'+(rep.to>15000101?"":fmtDate(rep.to))+'" placeholder="1405/12/29"></div></div>';
+  }
+  h+='<div id="repbody">'+repBody()+'</div>';
+  return h;
+}
+function lineStats(a,b){
+  /* per product: qty, revenue, cost in range, net of returns */
+  var C=calc(),m={};
+  function g(p){return m[p]||(m[p]={p:p,q:0,rev:0,cost:0})}
+  S.sales.forEach(function(s){if(!inR(s.date,a,b))return;var items=0;s.lines.forEach(function(l){items+=l.q*l.price});var k=items?1-(s.disc||0)/items:1;
+    s.lines.forEach(function(l){var o=g(l.p),u=C.unitCost[s.id+"|"+l.p]||0;o.q+=l.q;o.rev+=l.q*l.price*k;o.cost+=l.q*u})});
+  S.rets.forEach(function(r){if(!inR(r.date,a,b))return;var s=by(S.sales,r.sale);if(!s)return;var items=0;s.lines.forEach(function(l){items+=l.q*l.price});var k=items?1-(s.disc||0)/items:1;
+    r.lines.forEach(function(l){var o=g(l.p),u=C.unitCost[s.id+"|"+l.p]||0;o.q-=l.q;o.rev-=l.q*l.price*k;o.cost-=l.q*u})});
+  return Object.keys(m).map(function(k){var o=m[k];o.profit=o.rev-o.cost;return o}).filter(function(o){return o.q!==0||o.rev!==0});
+}
+function repData(tab){
+  var a=rep.from,b=rep.to,D0={tiles:[],tables:[],chart:null,sub:""};
+  var per=(a<13010101?"از ابتدا":fmtDate(a))+" تا "+(b>15000101?"امروز":fmtDate(b));
+  D0.period=per;
+  if(tab==="sum"){
+    var o=sumRange(a,b);
+    D0.tiles=[["فروش (ناخالص)",fmt(o.sales)],["خرید کالا",fmt(o.buys),COLORS.buy],["سود ناخالص",signed(o.profit),COLORS.profit],["سود خالص",signed(o.net_profit),o.net_profit<0?C.neg:C.pos]];
+    D0.tables=[{h:"صورت سود و زیان",cols:[{k:"a",l:"شرح",w:0},{k:"v",l:"مبلغ (ریال)",w:330,num:true}],rows:[
+      {a:"فروش خالص (پس از تخفیف و مرجوعی، بدون ارسال)",v:fmt(o.sales-o.ship-o.ret)},
+      {a:"بهای تمام‌شدهٔ کالای فروخته‌شده",v:"− "+fmt(o.cogs)},
+      {a:"درآمد هزینهٔ ارسال از مشتری",v:fmt(o.ship)},
+      {a:"سود ناخالص",v:signed(o.profit),bold:true},
+      {a:"هزینه‌ها (ارسال، تبلیغات، بسته‌بندی…)",v:"− "+fmt(o.exps)},
+      {a:"زیان ضایعات و کسری انبار",v:"− "+fmt(o.loss)},
+      {a:"سود خالص",v:signed(o.net_profit),bold:true,neg:o.net_profit<0?{v:1}:null}]},
+     {h:"نقدینگی و حساب‌ها",cols:[{k:"a",l:"شرح",w:0},{k:"v",l:"مبلغ (ریال)",w:330,num:true}],rows:[
+      {a:"خرید کالا در بازه",v:fmt(o.buys)},{a:"پرداخت نقدی به تأمین‌کنندگان",v:fmt(o.paidOut)},{a:"دریافتی از مشتریان",v:fmt(o.recv)},{a:"مرجوعی‌ها",v:fmt(o.ret)},
+      {a:"طلب از مشتریان (تا امروز)",v:fmt(totalRecv()),bold:true},{a:"بدهی به تأمین‌کنندگان (تا امروز)",v:fmt(totalDebt()),bold:true}]}];
+    D0.sub=o.cnt+" فاکتور · "+o.qty+" عدد فروخته شد";
+  }else if(tab==="prod"){
+    var ls=lineStats(a,b),key=rep.metric,lab={qty:"تعداد فروش",rev:"مبلغ فروش",profit:"سود"}[key];
+    ls.forEach(function(o){o.name=prodName(o.p);o.cat=(product(o.p)||{}).cat||"—"});
+    var f={qty:function(o){return o.q},rev:function(o){return o.rev},profit:function(o){return o.profit}}[key];
+    ls.sort(function(x,y){return f(y)-f(x)});
+    D0.chart={type:"hbars",title:"پرفروش‌ترین کالاها — "+lab,color:key==="profit"?COLORS.profit:COLORS.sale,items:ls.slice(0,10).map(function(o){return {label:o.name,v:Math.max(0,f(o)),txt:key==="qty"?o.q+" عدد":shortM(f(o)),tip:o.name+" — "+o.q+" عدد · فروش "+fmt(o.rev)+" · سود "+signed(o.profit)}})};
+    D0.tables=[{h:"فروش به تفکیک کالا",cols:[{k:"n",l:"کالا",w:0},{k:"q",l:"تعداد",w:120,a:"c"},{k:"r",l:"فروش",w:240,num:true},{k:"p",l:"سود",w:230,num:true}],rows:ls.map(function(o){return {n:o.name,q:String(o.q),r:fmt(o.rev),p:signed(o.profit)}})}];
+    var cat={};ls.forEach(function(o){var c=cat[o.cat]||(cat[o.cat]={n:o.cat,q:0,r:0,p:0});c.q+=o.q;c.r+=o.rev;c.p+=o.profit});
+    var cl=Object.keys(cat).map(function(k){return cat[k]}).sort(function(x,y){return y.r-x.r});
+    if(cl.length>1)D0.tables.push({h:"فروش به تفکیک دسته",cols:[{k:"n",l:"دسته",w:0},{k:"q",l:"تعداد",w:120,a:"c"},{k:"r",l:"فروش",w:240,num:true},{k:"p",l:"سود",w:230,num:true}],rows:cl.map(function(o){return {n:o.n,q:String(o.q),r:fmt(o.r),p:signed(o.p)}})});
+    D0.empty=!ls.length;
+  }else if(tab==="time"){
+    var days=(b>15000101||a<13010101)?999:dayNo(b)-dayNo(a)+1,monthly=days>45,cats=[],idx={},CC=calc();
+    function slot(d){var k=monthly?monthKey(d):d;if(idx[k]===undefined){idx[k]=cats.length;cats.push({k:k,s:0,p:0,b:0})}return cats[idx[k]]}
+    var dates=[];S.sales.forEach(function(s){if(inR(s.date,a,b))dates.push(s.date)});S.buys.forEach(function(x){if(inR(x.date,a,b))dates.push(x.date)});
+    dates.sort(function(x,y){return x-y});
+    if(!monthly&&a>13010101&&b<15000101){for(var d=a;d<=b;d=addDays(d,1))slot(d)}else if(monthly&&a>13010101&&b<15000101){for(var m=monthKey(a);m<=monthKey(b);m=(m%100===12?(Math.floor(m/100)+1)*100+1:m+1))slot(m*100+1)}
+    S.sales.forEach(function(s){if(!inR(s.date,a,b))return;var st=saleSt(s.id),c=slot(s.date);c.s+=st.total;c.p+=st.profit+(s.ship||0)});
+    S.buys.forEach(function(x){if(inR(x.date,a,b))slot(x.date).b+=CC.buyTotal[x.id]||0});
+    cats.sort(function(x,y){return x.k-y.k});
+    var lab2=function(c){return monthly?MONTHS[c.k%100-1]:String(c.k%100)};
+    D0.chart={type:"cols",title:monthly?"فروش، خرید و سود ماهانه":"فروش، خرید و سود روزانه",cats:cats.map(lab2),full:cats.map(function(c){return monthly?monthName(c.k):fmtDate(c.k)}),series:[{name:"فروش",color:COLORS.sale,vals:cats.map(function(c){return c.s})},{name:"خرید",color:COLORS.buy,vals:cats.map(function(c){return c.b})},{name:"سود",color:COLORS.profit,vals:cats.map(function(c){return c.p})}]};
+    D0.tables=[{h:monthly?"جدول ماهانه":"جدول روزانه",cols:[{k:"d",l:monthly?"ماه":"تاریخ",w:0},{k:"s",l:"فروش",w:230,num:true},{k:"b",l:"خرید",w:230,num:true},{k:"p",l:"سود",w:200,num:true}],rows:cats.slice().reverse().map(function(c){return {d:monthly?monthName(c.k):fmtDate(c.k),s:fmt(c.s),b:fmt(c.b),p:signed(c.p)}})}];
+    D0.empty=!cats.length;
+  }else if(tab==="cust"||tab==="supp"){
+    var cu=tab==="cust",who=cu?rep.who:rep.whoSupp;
+    if(who){
+      var pp=party(who),rows=[],tS=0,tP=0;
+      if(cu){
+        S.sales.filter(function(s){return s.cust===who&&inR(s.date,a,b)}).sort(function(x,y){return x.date-y.date}).forEach(function(s){var st=saleSt(s.id);tS+=st.total;tP+=st.paid;rows.push({d:fmtDate(s.date),n:s.no,t:fmt(st.total),p:fmt(st.paid),r:fmt(st.rem)})});
+        D0.tiles=[["جمع خرید",fmt(tS)],["پرداخت‌شده",fmt(tP),C.pos],["مانده طلب ما",fmt(custBal(who)),custBal(who)?C.neg:C.pos]];
+        D0.tables=[{h:"فاکتورهای "+pname(pp),cols:[{k:"d",l:"تاریخ",w:200,a:"c"},{k:"n",l:"کد",w:0},{k:"t",l:"مبلغ",w:210,num:true},{k:"p",l:"پرداخت",w:200,num:true},{k:"r",l:"مانده",w:190,num:true}],rows:rows}];
+      }else{
+        S.buys.filter(function(x){return x.supp===who&&inR(x.date,a,b)}).sort(function(x,y){return x.date-y.date}).forEach(function(x){var t=calc().buyTotal[x.id]||0,q=0;x.lines.forEach(function(l){q+=l.q});tS+=t;rows.push({d:fmtDate(x.date),n:(x.no||"خرید")+" · "+q+" عدد",t:fmt(t)})});
+        S.pays.forEach(function(y){if(y.party===who&&inR(y.date,a,b)&&y.dir==="out")tP+=y.amt});
+        D0.tiles=[["جمع خرید",fmt(tS),COLORS.buy],["پرداخت‌شده",fmt(tP),C.pos],["بدهی ما",fmt(suppBal(who)),suppBal(who)?C.neg:C.pos]];
+        D0.tables=[{h:"خریدها از "+pname(pp),cols:[{k:"d",l:"تاریخ",w:200,a:"c"},{k:"n",l:"شرح",w:0},{k:"t",l:"مبلغ",w:260,num:true}],rows:rows}];
+      }
+      D0.who=pp;D0.empty=!rows.length;
+    }else{
+      var rk=[];
+      S.parties.filter(function(p){return p.type===(cu?"cust":"supp")}).forEach(function(p){
+        var t=0,n=0;
+        if(cu)S.sales.forEach(function(s){if(s.cust===p.id&&inR(s.date,a,b)){t+=saleSt(s.id).total;n++}});else S.buys.forEach(function(x){if(x.supp===p.id&&inR(x.date,a,b)){t+=calc().buyTotal[x.id]||0;n++}});
+        if(n||(cu?custBal(p.id):suppBal(p.id)))rk.push({p:p,t:t,n:n,bal:cu?custBal(p.id):suppBal(p.id)});
+      });
+      rk.sort(function(x,y){return y.t-x.t});
+      D0.tables=[{h:cu?"مشتریان (بر اساس مبلغ خرید)":"تأمین‌کنندگان (بر اساس مبلغ خرید)",cols:[{k:"n",l:cu?"مشتری":"تأمین‌کننده",w:0},{k:"c",l:"تعداد",w:110,a:"c"},{k:"t",l:"جمع خرید",w:250,num:true},{k:"b",l:cu?"طلب ما":"بدهی ما",w:240,num:true}],rows:rk.map(function(x){return {n:pname(x.p),c:String(x.n),t:fmt(x.t),b:fmt(x.bal),neg:x.bal>0?{b:1}:null}})}];
+      D0.chart=rk.length?{type:"hbars",title:"بیشترین خرید — بازهٔ انتخابی",color:cu?COLORS.sale:COLORS.buy,items:rk.slice(0,8).map(function(x){return {label:pname(x.p),v:x.t,txt:shortM(x.t),tip:pname(x.p)+" — "+x.n+" فاکتور · "+fmt(x.t)+" ریال"}})}:null;
+      D0.empty=!rk.length;
+    }
+  }else if(tab==="stock"){
+    var C2=calc(),rows2=[],iv=0,is=0,nq=0;
+    S.products.slice().sort(function(x,y){return x.name.localeCompare(y.name,"fa")}).forEach(function(p){var q=stockTotal(p.id),av=C2.avg[p.id]||0;iv+=Math.max(0,q)*av;is+=Math.max(0,q)*p.sell;nq+=Math.max(0,q);rows2.push({n:p.name,q:String(q),c:fmt(av),v:fmt(Math.max(0,q)*av),neg:q<=(p.low||S.cfg.low)?{q:1}:null})});
+    D0.tiles=[["تعداد موجودی",fmt(nq)],["ارزش به بهای خرید",fmt(iv),COLORS.buy],["ارزش به قیمت فروش",fmt(is),COLORS.sale],["سود بالقوه",fmt(is-iv),COLORS.profit]];
+    D0.tables=[{h:"موجودی انبار",cols:[{k:"n",l:"کالا",w:0},{k:"q",l:"موجودی",w:130,a:"c"},{k:"c",l:"میانگین خرید",w:230,num:true},{k:"v",l:"ارزش",w:240,num:true}],rows:rows2}];
+    D0.period="تا امروز "+fmtDate(todayJ());
+  }
+  return D0;
+}
+function repBody(){
+  var d=repData(rep.tab),h="";
+  if(rep.tab==="cust"||rep.tab==="supp"){
+    var cu=rep.tab==="cust";
+    h+='<div class="lab"><label for="rwho">'+(cu?"مشتری":"تأمین‌کننده")+'</label></div><select class="field" id="rwho" data-rwho="1"><option value="">همهٔ '+(cu?"مشتریان":"تأمین‌کنندگان")+'</option>'+S.parties.filter(function(p){return p.type===rep.tab}).sort(function(x,y){return pname(x).localeCompare(pname(y),"fa")}).map(function(p){return '<option value="'+p.id+'"'+(p.id===(cu?rep.who:rep.whoSupp)?" selected":"")+'>'+esc(pname(p))+'</option>'}).join("")+'</select>';
+  }
+  if(rep.tab==="prod")h+='<div class="seg">'+[["qty","تعداد"],["rev","مبلغ فروش"],["profit","سود"]].map(function(o){return '<button type="button" data-metric="'+o[0]+'" aria-pressed="'+(rep.metric===o[0])+'">'+o[1]+'</button>'}).join("")+'</div>';
+  h+='<div class="note" style="margin:8px 2px">'+esc(d.period)+(d.sub?" · "+esc(d.sub):"")+'</div>';
+  if(d.tiles.length)h+='<div class="tiles">'+d.tiles.map(function(t){return '<div class="tile"><span>'+esc(t[0])+'</span><b class="num" style="'+(t[2]?"color:"+t[2]:"")+'">'+t[1]+'</b><small>ریال</small></div>'}).join("")+'</div>';
+  if(d.empty){h+=empty("در این بازه اطلاعاتی نیست");}
+  else{
+    if(d.chart){
+      h+='<div class="chart"><div class="note" style="margin:2px 4px;font-weight:700;color:var(--navy)">'+esc(d.chart.title)+'</div>';
+      if(d.chart.type==="cols")h+='<div class="legend">'+d.chart.series.map(function(s){return '<span><i style="background:'+s.color+'"></i>'+s.name+'</span>'}).join("")+'</div>';
+      h+='<canvas id="rc" aria-label="'+esc(d.chart.title)+'"></canvas><div class="cap" id="rcap">روی نمودار بزنید تا مقدار دقیق دیده شود.</div></div>';
+    }
+    d.tables.forEach(function(t){
+      h+='<h3>'+esc(t.h)+'</h3><div class="grp">'+t.rows.slice(0,200).map(function(r){
+        var first=t.cols[0].k,last=t.cols[t.cols.length-1],mid=t.cols.slice(1,-1).map(function(c){return c.l+": "+(r[c.k]||"")}).join(" · ");
+        return '<div class="row"><span class="r1"><span class="d">'+esc(r[first])+'</span>'+(mid?'<span class="m">'+esc(mid)+'</span>':'')+'</span><span class="r2"><span class="amt num '+(r.neg&&r.neg[last.k]?"neg":"")+'" style="'+(r.bold?"font-weight:800":"")+'">'+esc(r[last.k])+'</span>'+(t.cols.length>2?'<span class="bal">'+esc(last.l)+'</span>':'')+'</span></div>'}).join("")+'</div>';
+    });
+  }
+  h+='<button class="btn primary" type="button" data-act="repPdf">گزارش PDF</button>';
+  if(rep.tab!=="stock"&&rep.tab!=="sum")h+='';
+  repChart=d.chart||null;
+  return h;
+}
+function reportAfter(){drawRepChart()}
+function drawRepChart(){
+  var cv=$("rc"),c=repChart;if(!cv||!c)return;
+  var w=cv.parentElement.clientWidth-20,dpr=Math.min(2,window.devicePixelRatio||1),h;
+  if(c.type==="hbars")h=c.items.length*64+6;else h=240;
+  cv.style.width=w+"px";cv.style.height=h+"px";cv.width=w*dpr;cv.height=h*dpr;
+  var ctx=cv.getContext("2d");ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+  repHits=c.type==="hbars"?drawHBars(ctx,6,2,w-12,c.items,{color:c.color}):drawCols(ctx,2,2,w-4,h-4,c.cats,c.series);
+}
+function repTap(e){
+  var cv=e.target;if(!cv||cv.id!=="rc"||!repHits||!repChart)return;
+  var r=cv.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,hit=null;
+  repHits.forEach(function(k){if(x>=k.x&&x<=k.x+k.w&&y>=k.y&&y<=k.y+k.h)hit=k});
+  var cap=$("rcap");if(!hit||!cap)return;
+  if(repChart.type==="hbars")cap.textContent=repChart.items[hit.i].tip;
+  else cap.textContent=repChart.full[hit.i]+" — "+repChart.series.map(function(s){return s.name+": "+fmt(s.vals[hit.i])}).join(" · ");
+}
+function reportDoc(){
+  var d0=repData(rep.tab),name={sum:"گزارش خلاصه سود و زیان",prod:"گزارش فروش محصولات",time:"گزارش روند فروش و خرید",cust:"گزارش مشتریان",supp:"گزارش تأمین‌کنندگان",stock:"گزارش موجودی انبار"}[rep.tab];
+  if(d0.who)name=(rep.tab==="cust"?"صورت‌حساب مشتری: ":"صورت‌حساب تأمین‌کننده: ")+pname(d0.who);
+  return {title:name,file:"marela-"+rep.tab+"-"+todayJ(),draw:function(){
+    var d=newDoc();d.header(name,d0.period+(d0.sub?" — "+d0.sub:""),"");
+    if(d0.tiles.length)d.tiles(d0.tiles.slice(0,4).map(function(t){return [t[0],t[1],t[2]]}));
+    if(d0.chart){
+      d.sec(d0.chart.title);
+      if(d0.chart.type==="hbars"){var n=d0.chart.items.length,hh=n*84+10;if(d.y+hh>d.BOT)d.np();drawHBars(d.ctx,d.M,d.y,d.CW,d0.chart.items,{color:d0.chart.color,rh:84,bh:22,fs:25});d.y+=hh+20}
+      else{if(d.y+520>d.BOT)d.np();var lx=d.R;d0.chart.series.forEach(function(s){d.ctx.fillStyle=s.color;d.ctx.fillRect(lx-20,d.y+4,20,20);d.T(s.name,lx-30,d.y+14,"right",23,400,C.ink);lx-=120});d.y+=40;drawCols(d.ctx,d.M,d.y,d.CW,420,d0.chart.cats,d0.chart.series,{fs:21});d.y+=450}
+    }
+    d0.tables.forEach(function(t){d.sec(t.h);d.table(t.cols,t.rows)});
+    d.sign();return d;
+  }};
+}
+/* ---------- SETTINGS ---------- */
+function vSettings(){
+  var c=S.cfg;
+  var h=pageBar("تنظیمات و پشتیبان")+'<div class="box pad"><b>اطلاعات فروشگاه (روی فاکتور چاپ می‌شود)</b><div class="note">نام فروشگاه: مارلا · مدیر: روژان براتی</div>'
+   +'<div class="lab"><label for="c_phone">تلفن / موبایل فروشگاه</label></div><input class="field ltr" id="c_phone" data-cfg="phone" inputmode="tel" value="'+esc(c.phone)+'">'
+   +'<div class="lab"><label for="c_insta">آیدی اینستاگرام</label></div><input class="field ltr" id="c_insta" data-cfg="insta" value="'+esc(c.insta)+'" placeholder="@marela">'
+   +'<div class="lab"><label for="c_addr">آدرس</label></div><input class="field" id="c_addr" data-cfg="addr" value="'+esc(c.addr)+'">'
+   +'<div class="lab"><label for="c_foot">متن پایین فاکتور</label></div><input class="field" id="c_foot" data-cfg="foot" value="'+esc(c.foot)+'">'
+   +'<div class="lab"><label for="c_prefix">پیشوند کد فاکتور</label></div><input class="field ltr" id="c_prefix" data-cfg="prefix" value="'+esc(c.prefix)+'">'
+   +'<div class="lab"><label for="c_low">هشدار کمبود موجودی (تعداد)</label></div><input class="field ltr" id="c_low" data-cfg="low" data-num="1" inputmode="numeric" value="'+c.low+'">'
+   +'<div class="lab"><label for="c_gap">فاصلهٔ پیش‌فرض اقساط (روز)</label></div><input class="field ltr" id="c_gap" data-cfg="gap" data-num="1" inputmode="numeric" value="'+c.gap+'"></div>';
+  h+='<h3>پشتیبان‌گیری</h3><div class="note">آخرین پشتیبان: '+(S.lastBackup?new Date(S.lastBackup).toLocaleString("fa-IR"):"هنوز گرفته نشده")+'</div>';
+  h+='<button class="btn primary" type="button" data-act="backup">گرفتن پشتیبان (ذخیره فایل)</button><button class="btn soft" type="button" data-act="shareBackup">ارسال پشتیبان (واتساپ، تلگرام…)</button><button class="btn soft" type="button" data-act="restore">بازیابی از فایل پشتیبان</button><input type="file" id="rfile" accept=".json,application/json" hidden>';
+  h+='<button class="btn" type="button" data-act="snaps">بازیابی از نسخه‌های خودکار گوشی</button>';
+  if(S.demo)h+='<h3>داده‌های نمونه</h3><button class="btn danger" type="button" data-act="wipeDemo">پاک کردن داده‌های نمونه و شروع واقعی</button>';
+  h+='<h3>دربارهٔ برنامه</h3><div class="box pad"><div>نسخهٔ برنامه: <b class="num">'+VERSION+'</b></div><div class="note">آدرس: <span class="num">'+esc(location.host||"—")+'</span> — اطلاعات روی همین پورت ذخیره می‌شود؛ پورت را عوض نکنید.</div></div>';
+  h+='<button class="btn" type="button" data-act="forceUpdate">به‌روزرسانی اجباری فایل‌های برنامه (اطلاعات می‌ماند)</button>';
+  if(installEvt)h+='<button class="btn soft" type="button" data-act="install">نصب برنامه روی صفحهٔ اصلی گوشی</button>';
+  return h;
+}
+
+/* ---------- actions & events ---------- */
+var installEvt=null;
+function keepScroll(fn){var y=window.scrollY;fn();window.scrollTo(0,y)}
+function refreshSeg(btn){var path=btn.dataset.seg;document.querySelectorAll('[data-seg="'+path+'"]').forEach(function(b){b.setAttribute("aria-pressed",b.dataset.v===String(getP(fm,path)))})}
+function hasNegStock(){var C=calc(),bad=false;for(var k in C.stock)if(C.stock[k]<0)bad=true;return bad}
+function tryRemove(fn,okMsg,after){
+  var snapS=JSON.stringify(S);fn();CACHE=null;
+  if(hasNegStock()){S=sane(JSON.parse(snapS));S.rev=JSON.parse(snapS).rev;CACHE=null;toast("حذف ممکن نیست: موجودی انبار منفی می‌شود");return}
+  if(!persist())return;toast(okMsg);after&&after();
+}
+function stmtDoc(x){
+  var L=ledger(x.id),cust=x.type==="cust";
+  return {title:"صورت‌حساب "+pname(x),file:"hesab-"+x.id,sms:{text:partyText(x),phone:x.phone},draw:function(){
+    var d=newDoc();d.header("صورت‌حساب "+(cust?"مشتری":"تأمین‌کننده"),"تا تاریخ "+fmtDate(todayJ()),"");
+    d.ctx.fillStyle=C.zeb;d.ctx.fillRect(d.M,d.y,d.CW,90);d.ctx.strokeStyle=C.line;d.ctx.lineWidth=2;d.ctx.strokeRect(d.M,d.y,d.CW,90);
+    d.T(pname(x),d.R-24,d.y+45,"right",32,800,C.ink);if(x.phone)d.T(x.phone,d.M+24,d.y+45,"left",25,400,C.mut,"ltr");d.y+=90+28;
+    d.table([{k:"d",l:"تاریخ",w:190,a:"c"},{k:"t",l:"شرح",w:0},{k:"a",l:cust?"بدهکار":"خرید",w:200,num:true},{k:"c",l:cust?"بستانکار":"پرداخت",w:200,num:true},{k:"b",l:"مانده",w:210,num:true}],
+      L.map(function(e){return {d:fmtDate(e.d),t:e.t,a:e.debit?fmt(e.debit):"",c:e.credit?fmt(e.credit):"",b:signed(e.bal)}}));
+    var bal=cust?custBal(x.id):suppBal(x.id);
+    d.ctx.fillStyle=C.head;d.ctx.fillRect(d.M,d.y,d.CW,70);d.T(cust?"مانده طلب ما":"مانده بدهی ما",d.R-20,d.y+35,"right",30,800,C.ink);d.T(fmt(bal)+" ریال",d.M+20,d.y+35,"left",34,800,bal>0?C.neg:C.pos,"ltr");d.y+=80;
+    d.sign();return d}};
+}
+function partyText(x){
+  var cust=x.type==="cust",bal=cust?custBal(x.id):suppBal(x.id),L=["فروشگاه مارلا","سلام "+(x.name||"")+(x.name?"، ":"")+(cust?"مانده حساب شما":"مانده حساب")+": "+fmt(bal)+" ریال ("+fmt(toman(bal))+" تومان)"];
+  var li=[];S.sales.forEach(function(s){if(s.cust===x.id){saleSt(s.id).inst.forEach(function(i){if(i.rem>0&&i.state!=="void")li.push(i)})}});
+  li.sort(function(a,b){return a.due-b.due}).slice(0,3).forEach(function(i){L.push("قسط "+i.n+": "+fmtDate(i.due)+" — "+fmt(i.rem))});
+  L.push("روژان براتی");if(S.cfg.phone)L.push(S.cfg.phone);return L.join("\n");
+}
+function remindText(s){
+  var c=party(s.cust),st=saleSt(s.id),L=["سلام "+(c&&c.name?c.name+" عزیز":"")+"، یادآوری از فروشگاه مارلا","فاکتور "+s.no+" — مانده: "+fmt(st.rem)+" ریال"];
+  st.inst.filter(function(i){return i.rem>0&&i.state!=="void"}).slice(0,2).forEach(function(i){L.push("قسط "+i.n+" سررسید "+fmtDate(i.due)+": "+fmt(i.rem)+" ریال")});
+  L.push("با تشکر — روژان براتی");return L.join("\n");
+}
+function exportJson(){return JSON.stringify(S)}
+document.addEventListener("click",function(e){
+  var t=e.target.closest("[data-tab],[data-act],[data-seg],[data-seg2],[data-seg3],[data-filter],[data-rtab],[data-preset],[data-metric]");if(!t)return;
+  var ds=t.dataset;
+  if(ds.tab){goTab(ds.tab);return}
+  if(ds.seg!==undefined&&fm){
+    setP(fm,ds.seg,ds.v);
+    if(/^lines\.\d+\.mode$/.test(ds.seg)){fm.onSet&&fm.onSet(ds.seg);fm.upd&&fm.upd();return}
+    refreshSeg(t);if(ds.seg==="mode"){fm.payHtml()}fm.upd&&fm.upd();return;
+  }
+  if(ds.seg2){route.p.seg=ds.seg2;keepScroll(render);return}
+  if(ds.seg3){peopleSeg=ds.seg3;keepScroll(render);return}
+  if(ds.filter){salesFilter=ds.filter;keepScroll(render);return}
+  if(ds.rtab){rep.tab=ds.rtab;render();return}
+  if(ds.preset){var r=presetRange(ds.preset);rep.preset=ds.preset;rep.from=r[0];rep.to=r[1];keepScroll(render);return}
+  if(ds.metric){rep.metric=ds.metric;keepScroll(render);return}
+  var a=ds.act;
+  if(a==="back"){back();return}
+  if(a==="newSale"){go("f-sale",{});return}
+  if(a==="open"){go(ds.r,{id:ds.id,dir:ds.dir,party:ds.party,sale:ds.sale,prod:ds.prod,edit:ds.edit,type:ds.type,cust:ds.cust,supp:ds.supp});return}
+  if(a==="submit"){fm&&fm.submit();return}
+  if(a==="today"){var k=ds.k2;setP(fm,k,todayJ());var el=$("f_"+k);if(el)el.value=fmtDate(todayJ());fm.onSet&&fm.onSet(k);fm.upd&&fm.upd();return}
+  if(a==="addLine"){fm.lines.push(emptyLine());keepScroll(render);return}
+  if(a==="addBuyLine"){fm.lines.push({p:"",v:"",q:1,cost:0,mode:"keep",pct:30,sell:0,round:true});keepScroll(render);return}
+  if(a==="delLine"){fm.lines.splice(+ds.i,1);keepScroll(render);return}
+  if(a==="newCust"){quickParty("cust",function(id){fm.cust=id;render()});return}
+  if(a==="newSupp"){quickParty("supp",function(id){fm.supp=id;render()});return}
+  if(a==="newProdBuy"){quickProduct(function(id){var l=fm.lines.filter(function(x){return !x.p})[0];if(!l){l={p:"",v:"",q:1,cost:0,mode:"keep",pct:30,sell:0,round:true};fm.lines.push(l)}l.p=id;l.sell=product(id).sell;render()});return}
+  if(a==="anonCust"){S.cfg.anonSeq=(S.cfg.anonSeq||0)+1;var id=nid("c",S.parties);S.parties.push({id:id,type:"cust",name:"",phone:"",addr:"",insta:"",note:"",anon:true,seq:S.cfg.anonSeq});if(!persist())return;fm.cust=id;keepScroll(render);toast("مشتری ناشناس "+S.cfg.anonSeq+" ثبت شد");return}
+  if(a==="invPdf"){makeDoc(docInvoice(by(S.sales,ds.id)));return}
+  if(a==="invSms"){var s=by(S.sales,ds.id);smsBox(invoiceText(s),(party(s.cust)||{}).phone);return}
+  if(a==="remind"){var s2=by(S.sales,ds.id);smsBox(remindText(s2),(party(s2.cust)||{}).phone);return}
+  if(a==="stmtPdf"){makeDoc(stmtDoc(party(ds.id)));return}
+  if(a==="stmtSms"){var x=party(ds.id);smsBox(partyText(x),x.phone);return}
+  if(a==="repPdf"){makeDoc(reportDoc());return}
+  if(a==="delSale"){var sl=by(S.sales,ds.id);confirmBox({title:"حذف فاکتور "+sl.no+"؟",lines:["کالاها به انبار برمی‌گردند و پرداخت‌های این فاکتور هم حذف می‌شود."],danger:1},"انصراف",null,"حذف",function(){tryRemove(function(){S.sales=S.sales.filter(function(z){return z.id!==sl.id});S.pays=S.pays.filter(function(z){return z.sale!==sl.id});S.rets=S.rets.filter(function(z){return z.sale!==sl.id})},"فاکتور حذف شد",function(){goTab("sales")})});return}
+  if(a==="delBuy"){var bb=by(S.buys,ds.id);confirmBox({title:"حذف این خرید؟",lines:["موجودی انبار به همان اندازه کم می‌شود."],danger:1},"انصراف",null,"حذف",function(){tryRemove(function(){S.buys=S.buys.filter(function(z){return z.id!==bb.id});S.pays=S.pays.filter(function(z){return z.buy!==bb.id})},"خرید حذف شد",function(){goTab("stock")})});return}
+  if(a==="delProduct"){var pr=product(ds.id),used=S.sales.some(function(z){return z.lines.some(function(l){return l.p===pr.id})})||S.buys.some(function(z){return z.lines.some(function(l){return l.p===pr.id})})||S.adjs.some(function(z){return z.p===pr.id});
+    confirmBox({title:used?"کالا سابقه دارد":"حذف کالا؟",lines:[used?"چون در خرید یا فروش استفاده شده، فقط از فهرست انتخاب مخفی می‌شود (گزارش‌ها حفظ می‌شود).":"این کالا برای همیشه حذف می‌شود."],danger:1},"انصراف",null,used?"مخفی کن":"حذف",function(){if(used)pr.off=true;else S.products=S.products.filter(function(z){return z.id!==pr.id});if(!persist())return;toast("انجام شد");goTab("stock")});return}
+  if(a==="delParty"){var pp=party(ds.id),u=S.sales.some(function(z){return z.cust===pp.id})||S.buys.some(function(z){return z.supp===pp.id})||S.pays.some(function(z){return z.party===pp.id});
+    if(u){toast("این طرف حساب تراکنش دارد و قابل حذف نیست");return}
+    confirmBox({title:"حذف «"+pname(pp)+"»؟",lines:[""],danger:1},"انصراف",null,"حذف",function(){S.parties=S.parties.filter(function(z){return z.id!==pp.id});if(!persist())return;toast("حذف شد");back()});return}
+  if(a==="backup"){S.lastBackup=Date.now();persist(true);try{download("marela-backup-"+todayJ()+".json",exportJson(),"application/json");toast("فایل پشتیبان ساخته شد")}catch(x2){toast("ذخیره فایل ممکن نشد")}render();return}
+  if(a==="shareBackup"){S.lastBackup=Date.now();persist();var f=new File([exportJson()],"marela-backup-"+todayJ()+".json",{type:"application/json"});try{if(navigator.canShare&&navigator.canShare({files:[f]})){navigator.share({files:[f]}).catch(function(){});render();return}}catch(x3){}toast("اشتراک‌گذاری فایل در این مرورگر نیست؛ «گرفتن پشتیبان» را بزنید");return}
+  if(a==="restore"){$("rfile").click();return}
+  if(a==="snaps"){listSnaps(function(l){
+    var h='<div class="mbox"><h3>نسخه‌های خودکار</h3>'+(l.length?l.slice(0,12).map(function(s,i){return '<button class="btn" type="button" data-sn="'+i+'">'+new Date(s.t).toLocaleString("fa-IR")+' — '+((s.n&&s.n.s)||0)+' فروش، '+((s.n&&s.n.p)||0)+' کالا</button>'}).join(""):'<div class="note">نسخه‌ای نیست.</div>')+'<button class="btn" id="snX" type="button">بستن</button></div>';
+    openModal(h);$("snX").onclick=closeModal;
+    $("modal").querySelectorAll("[data-sn]").forEach(function(b){b.onclick=function(){var sn=l[+b.dataset.sn];closeModal();confirmBox({title:"بازیابی این نسخه؟",lines:["اطلاعات فعلی با این نسخه جایگزین می‌شود."],danger:1},"انصراف",null,"بازیابی",function(){try{S=sane(JSON.parse(sn.data));S.rev=(S.rev||0)+1000;persist();toast("بازیابی شد ✓");goTab("home")}catch(x4){toast("نسخه خراب است")}})}});
+  });return}
+  if(a==="wipeDemo"){confirmBox({title:"پاک کردن داده‌های نمونه؟",lines:["همهٔ کالاها، فروش‌ها و مشتریان نمونه حذف می‌شود. تنظیمات فروشگاه می‌ماند."],danger:1},"انصراف",null,"پاک کن",function(){var c=S.cfg;S=blank();S.cfg=c;S.cfg.seq=0;S.cfg.anonSeq=0;S.demo=false;persist();toast("آمادهٔ شروع واقعی ✓");goTab("home")});return}
+  if(a==="forceUpdate"){forceUpdate();return}
+  if(a==="install"){if(installEvt){installEvt.prompt();installEvt=null}return}
+});
+document.addEventListener("input",function(e){
+  var t=e.target;
+  if(t.dataset.search){var v=t.value;if(t.dataset.search==="sales"){salesQ=v;$("list").innerHTML=salesList()}else if(t.dataset.search==="stock"){stockQ=v;$("list").innerHTML=prodList()}else{peopleQ=v;$("list").innerHTML=peopleList()}return}
+  if(t.dataset.rf){var m=maskDate(t.value);if(m!==t.value){t.value=m}var d=parseDate(m);if(d){rep[t.dataset.rf]=d;rep.preset="";$("repbody").innerHTML=repBody();drawRepChart();document.querySelectorAll("[data-preset]").forEach(function(b){b.setAttribute("aria-pressed","false")})}return}
+  if(t.dataset.cfg){var k=t.dataset.cfg;S.cfg[k]=t.dataset.num?(parseQty(t.value)||0):t.value;persist()}
+});
+document.addEventListener("change",function(e){
+  var t=e.target;
+  if(t.dataset.rwho){if(rep.tab==="cust")rep.who=t.value;else rep.whoSupp=t.value;$("repbody").innerHTML=repBody();drawRepChart();return}
+  if(t.dataset.chk&&fm){setP(fm,t.dataset.chk,t.checked);fm.upd&&fm.upd();return}
+  if(t.id==="rfile"&&t.files[0]){
+    var fr=new FileReader();fr.onload=function(){try{var o=sane(JSON.parse(fr.result));confirmBox({title:"بازیابی از فایل؟",lines:["فاکتور: "+o.sales.length+" · کالا: "+o.products.length+" · مشتری/تأمین‌کننده: "+o.parties.length,"اطلاعات فعلی با این فایل جایگزین می‌شود."],danger:1},"انصراف",null,"بازیابی",function(){S=o;S.rev=(S.rev||0)+1000;persist();toast("بازیابی شد ✓");goTab("home")})}catch(x){toast("فایل پشتیبان معتبر نیست")}t.value=""};fr.readAsText(t.files[0]);
+  }
+});
+document.addEventListener("click",repTap);
+window.addEventListener("resize",function(){clearTimeout(window.__rz);window.__rz=setTimeout(drawRepChart,150)});
+window.addEventListener("beforeinstallprompt",function(e){e.preventDefault();installEvt=e;if(route.name==="settings")render()});
+function forceUpdate(){
+  toast("در حال به‌روزرسانی…");var done=function(){location.reload()};
+  try{var p=navigator.serviceWorker?navigator.serviceWorker.getRegistrations().then(function(rs){return Promise.all(rs.map(function(r){return r.unregister()}))}):Promise.resolve();
+    p.then(function(){return window.caches?caches.keys().then(function(ks){return Promise.all(ks.map(function(k){return caches.delete(k)}))}):0}).then(done,done)}catch(e){done()}
+}
+/* ---------- back button: ask before leaving ---------- */
+(function(){
+  var leaving=0,armedOnce=false;
+  function arm(){try{history.pushState({k:1},"")}catch(e){}}
+  function first(){if(armedOnce)return;armedOnce=true;arm()}
+  ["pointerdown","touchstart","click","keydown"].forEach(function(ev){document.addEventListener(ev,first,true)});
+  window.addEventListener("popstate",function(){
+    if(leaving){leaving--;if(leaving>0)history.back();return}
+    if(!armedOnce)return;
+    arm();
+    var m=$("modal");
+    if(!m.hidden){closeModal();return}
+    if(stack.length){back();return}
+    if(route.name!=="home"){goTab("home");return}
+    confirmBox({title:"خروج از برنامه",lines:["آیا می‌خواهید از برنامه خارج شوید؟","اطلاعات شما ذخیره است."]},"ماندن در برنامه",function(){},"خروج",function(){leaving=2;history.back()});
+  });
+})();
+
+/* ---------- demo data (preview only) ---------- */
+function seedDemo(){
+  var seed=7;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647}
+  function pick(a){return a[Math.floor(rnd()*a.length)]}
+  var t=todayJ();S=blank();S.demo=true;S.cfg.phone="09120000000";S.cfg.insta="@marela.shop";S.cfg.addr="اصفهان";
+  function addP(name,cat,sell,sizes,colors){var p={id:nid("p",S.products),name:name,cat:cat,sell:sell,vars:mkVars(splitList(sizes),splitList(colors)),sizes:sizes,colors:colors,code:"",note:"",low:0};S.products.push(p);return p}
+  var P=[addP("مایو دوتکه گلدار","مایو و لباس شنا",8900000,"S, M, L","آبی، گلبهی"),addP("مایو یکتکه ورزشی","مایو و لباس شنا",10500000,"M, L, XL","مشکی، سرمه‌ای"),addP("پیراهن ساحلی حریر","مایو و لباس شنا",7200000,"فری","سفید، فیروزه‌ای"),
+   addP("بلوز کتان یقه گرد","لباس زنانه",6400000,"S, M, L","سفید، کرم"),addP("شومیز گل‌دار","لباس زنانه",7900000,"M, L","صورتی، سبز"),addP("شلوار پارچه‌ای راسته","شلوار",9800000,"38, 40, 42","مشکی، کرم"),
+   addP("مانتو تابستانه","لباس زنانه",15500000,"M, L","سرمه‌ای، شیری"),addP("سارافون کتان","لباس زنانه",11800000,"S, M, L","گلبهی"),addP("شال نخی","اکسسوری",3200000,"","طوسی، یاسی"),addP("کلاه لبه‌دار ساحلی","اکسسوری",2900000,"","کرم"),addP("پیراهن مجلسی کوتاه","لباس زنانه",21500000,"S, M","مشکی، زرشکی"),addP("ست راحتی نخی","لباس زنانه",8600000,"M, L","پودری")];
+  function addS(n,ph,ad){var p={id:nid("c",S.parties),type:"supp",name:n,phone:ph,addr:ad,insta:"",note:""};S.parties.push(p);return p}
+  var SU=[addS("پوشاک ستاره (عمده)","09131112233","بازار تهران"),addS("تولیدی نگین","09124445566","قم"),addS("وارداتی دریا","09351239876","بندرعباس")];
+  function addC(n,ph,ad,ins,anon){var p={id:nid("c",S.parties),type:"cust",name:n,phone:ph,addr:ad,insta:ins||"",note:"",anon:!!anon};if(anon){S.cfg.anonSeq++;p.seq=S.cfg.anonSeq}S.parties.push(p);return p}
+  var CU=[addC("مریم احمدی","09121234567","","",0),addC("سارا کریمی","09127654321","","",0),addC("نگار رضایی","09191112233","","",0),addC("الهام محمدی","09351112244","","",0),addC("فاطمه حسینی","09121239876","","",0),addC("زهرا موسوی","09131234000","","",0),
+   addC("","","اصفهان، خیابان چهارباغ، کوچه ۱۲","", 1),addC("","","","@sea_lover_91",1),addC("","09381239999","","",1)];
+  var stock={};function sk(p,v){return p.id+"|"+v}
+  /* purchases ~ 70 and 40 days ago */
+  [[-72,0,[0,1,2,3,4]],[-70,1,[5,6,7,8,9]],[-45,2,[0,1,10,11,3]],[-40,0,[4,5,6,7,8,9]]].forEach(function(b){
+    var lines=[];b[2].forEach(function(pi){var p=P[pi];varsOf(p).forEach(function(v){var q=3+Math.floor(rnd()*6),cost=Math.round(p.sell*(0.5+rnd()*0.1)/10000)*10000;lines.push({p:p.id,v:v,q:q,cost:cost});stock[sk(p,v)]=(stock[sk(p,v)]||0)+q})});
+    var tot=0;lines.forEach(function(l){tot+=l.q*l.cost});
+    var rec={id:nid("b",S.buys),date:addDays(t,b[0]),time:"10:00",supp:SU[b[1]].id,no:String(100+S.buys.length*7),lines:lines,extra:b[1]===2?3000000:0,note:""};S.buys.push(rec);
+    var paid=Math.round(tot*(b[1]===2?0.6:0.85)/100000)*100000;S.pays.push({id:nid("y",S.pays),date:rec.date,time:"10:00",party:rec.supp,dir:"out",amt:paid,method:"card",buy:rec.id,note:"پرداخت هنگام خرید"});
+  });
+  /* sales: ~34 across the last 60 days */
+  var chans=["اینستاگرام","اینستاگرام","تلگرام","واتساپ"];
+  for(var i=0;i<34;i++){
+    var d=addDays(t,-Math.floor(60-i*1.75-rnd()*1.5));if(d>t)d=t;
+    var c=CU[Math.floor(rnd()*CU.length)],lines=[],n=1+Math.floor(rnd()*2.2);
+    for(var k=0;k<n;k++){
+      var p=pick(P.slice(0,10).concat(P.slice(0,5))),vs=varsOf(p).filter(function(v){return (stock[sk(p,v)]||0)>0});if(!vs.length)continue;
+      var v=pick(vs),q=rnd()<0.2?2:1;if(q>stock[sk(p,v)])q=1;
+      if(lines.some(function(l){return l.p===p.id&&l.v===v}))continue;
+      stock[sk(p,v)]-=q;lines.push({p:p.id,v:v,q:q,price:p.sell});
+    }
+    if(!lines.length)continue;
+    var items=0;lines.forEach(function(l){items+=l.q*l.price});
+    var disc=rnd()<0.25?Math.round(items*0.05/10000)*10000:0,ship=rnd()<0.6?600000:0,total=items-disc+ship;
+    var yy=String(Math.floor(t/10000)).slice(2),no=S.cfg.prefix+"-"+yy+"-"+String(S.sales.length+1).padStart(4,"0");S.cfg.seq=S.sales.length+1;
+    var rec={id:nid("s",S.sales),no:no,date:d,time:pad2(9+Math.floor(rnd()*11))+":"+pad2(Math.floor(rnd()*60)),cust:c.id,lines:lines,disc:disc,ship:ship,method:pick(["card","cash","pos"]),chan:pick(chans),note:"",inst:null};
+    var mode=rnd();
+    if(i%8===3||i%11===5){/* installment */
+      var down=Math.round(total*0.3/100000)*100000,nn=3+Math.floor(rnd()*2);
+      rec.inst={n:nn,gap:30,parts:instParts(total-down,nn,addDays(d,30),30)};
+      S.sales.push(rec);S.pays.push({id:nid("y",S.pays),date:d,time:rec.time,party:c.id,dir:"in",amt:down,method:"card",sale:rec.id,down:true,note:"پرداخت هنگام فروش"});
+      /* customer paid first part for the older ones */
+      if(d<addDays(t,-35)){var part=rec.inst.parts[0];S.pays.push({id:nid("y",S.pays),date:part.due,time:"12:00",party:c.id,dir:"in",amt:part.amt,method:"card",sale:rec.id,note:"قسط ۱"})}
+    }else if(i%13===6){
+      var dp=Math.round(total*0.5/100000)*100000;S.sales.push(rec);S.pays.push({id:nid("y",S.pays),date:d,time:rec.time,party:c.id,dir:"in",amt:dp,method:"cash",sale:rec.id,down:true,note:"پرداخت هنگام فروش"});
+    }else{S.sales.push(rec);S.pays.push({id:nid("y",S.pays),date:d,time:rec.time,party:c.id,dir:"in",amt:total,method:rec.method,sale:rec.id,down:true,note:"پرداخت هنگام فروش"})}
+  }
+  /* a return, an adjustment, expenses */
+  var s0=S.sales.filter(function(s){return s.lines.length&&!s.inst&&s.date<addDays(t,-10)})[0];
+  if(s0){var l0=s0.lines[0];S.rets.push({id:nid("r",S.rets),date:addDays(s0.date,4),time:"15:00",sale:s0.id,lines:[{p:l0.p,v:l0.v,q:1,price:l0.price}],credit:l0.price-Math.round((s0.disc||0)/Math.max(1,s0.lines.length)),note:"سایز نشد"});
+    S.pays.push({id:nid("y",S.pays),date:addDays(s0.date,4),time:"15:00",party:s0.cust,dir:"out",amt:l0.price-Math.round((s0.disc||0)/Math.max(1,s0.lines.length)),method:"card",sale:s0.id,note:"استرداد وجه مرجوعی"})}
+  var pa=P[8],va=varsOf(pa)[0];if((stock[sk(pa,va)]||0)>1)S.adjs.push({id:nid("a",S.adjs),date:addDays(t,-12),time:"11:00",p:pa.id,v:va,q:-1,reason:"ضایعات / آسیب",note:""});
+  [["پست سفارش‌ها","ارسال و پست",-50,2400000],["بسته‌بندی و کیسه","بسته‌بندی",-48,1800000],["تبلیغ اینستاگرام","تبلیغات",-30,5000000],["عکاسی محصولات","عکاسی",-20,4000000],["پست سفارش‌ها","ارسال و پست",-8,1900000]].forEach(function(e){S.exps.push({id:nid("e",S.exps),date:addDays(t,e[2]),title:e[0],cat:e[1],amt:e[3]})});
+  persist();
+}
+
+logoEl.src=LOGO;
+(function(){
+  var had=load();
+  if(!had){if(DEMO)seedDemo()}
+  try{if("serviceWorker" in navigator&&/^https?:/.test(location.protocol)&&!window.__PREVIEW)navigator.serviceWorker.register("sw.js").catch(function(){})}catch(e){}
+  render();
+})();
+
+</script></body></html>
